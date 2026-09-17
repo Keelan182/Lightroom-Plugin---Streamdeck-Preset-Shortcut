@@ -1,0 +1,61 @@
+{
+	"Name": "Lightroom Presets",
+	"Version": "1.0.0.0",
+	"Author": "keelan182",
+	"Actions": [
+		{
+			"Name": "Apply Lightroom Preset",
+			"UUID": "com.keelan182.lightroom-presets.apply-preset",
+			"Icon": "imgs/actions/apply-preset/icon",
+			"Tooltip": "Applies a chosen Lightroom Desktop/CC develop preset to the currently selected photo.",
+			"PropertyInspectorPath": "ui/apply-preset.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/apply-preset/key",
+					"TitleAlignment": "bottom",
+					"FontSize": 13
+				}
+			]
+		},
+		{
+			"Name": "Refresh Lightroom Presets",
+			"UUID": "com.keelan182.lightroom-presets.refresh-presets",
+			"Icon": "imgs/actions/refresh-presets/icon",
+			"Tooltip": "Re-discovers presets from Lightroom Desktop/CC and updates every button's cached preset list.",
+			"PropertyInspectorPath": "ui/refresh-presets.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/refresh-presets/key",
+					"TitleAlignment": "bottom",
+					"FontSize": 13
+				}
+			]
+		}
+	],
+	"Category": "Lightroom Presets",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "Assign Adobe Lightroom Desktop/CC develop presets to Stream Deck buttons and apply them to the selected photo instantly, via Lightroom's own External Controller API.",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion": "6.5"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "12"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"UUID": "com.keelan182.lightroom-presets"
+}

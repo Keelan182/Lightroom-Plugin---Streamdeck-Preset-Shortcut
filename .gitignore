@@ -1,0 +1,8 @@
+node_modules/
+com.keelan182.lightroom-presets.sdPlugin/logs/
+.DS_Store
+
+# NOTE: com.keelan182.lightroom-presets.sdPlugin/bin/plugin.js and the
+# packaged .streamDeckPlugin file are intentionally committed (not ignored)
+# so the repo always contains a ready-to-install build. Run `npm run build`
+# after changing anything in src/ to refresh them.

@@ -1,0 +1,52 @@
+{
+	"_comment": "Illustrative only - this is the shape of the per-button settings Stream Deck stores for each 'Apply Lightroom Preset' action instance (in its own .sdprofile/manifest data), and the shape of this plugin's own on-disk preset cache. You never hand-edit either file; both are populated by the property inspector and by 'Refresh Lightroom Presets'.",
+
+	"exampleButtonAssignments": [
+		{
+			"button": "Button 1",
+			"settings": {
+				"presetId": "a1b2c3d4-0001-4a11-8b22-000000000001",
+				"presetName": "Concert Warm",
+				"titleMode": "preset"
+			}
+		},
+		{
+			"button": "Button 2",
+			"settings": {
+				"presetId": "a1b2c3d4-0002-4a11-8b22-000000000002",
+				"presetName": "Concert Cool",
+				"titleMode": "preset"
+			}
+		},
+		{
+			"button": "Button 3",
+			"settings": {
+				"presetId": "a1b2c3d4-0003-4a11-8b22-000000000003",
+				"presetName": "Portrait Natural",
+				"titleMode": "custom",
+				"customTitle": "PORTRAIT"
+			}
+		},
+		{
+			"button": "Button 4",
+			"settings": {
+				"presetId": "a1b2c3d4-0004-4a11-8b22-000000000004",
+				"presetName": "Black & White",
+				"titleMode": "preset-and-status"
+			}
+		}
+	],
+
+	"examplePresetsCacheFile": {
+		"_path": "~/Library/Application Support/com.keelan182.lightroom-presets/presets-cache.json",
+		"updatedAt": "2026-09-17T12:00:00.000Z",
+		"presets": [
+			{ "id": "a1b2c3d4-0001-4a11-8b22-000000000001", "name": "Concert Warm" },
+			{ "id": "a1b2c3d4-0002-4a11-8b22-000000000002", "name": "Concert Cool" },
+			{ "id": "a1b2c3d4-0003-4a11-8b22-000000000003", "name": "Portrait Natural" },
+			{ "id": "a1b2c3d4-0004-4a11-8b22-000000000004", "name": "Black & White" },
+			{ "id": "a1b2c3d4-0005-4a11-8b22-000000000005", "name": "Cinematic" },
+			{ "id": "a1b2c3d4-0006-4a11-8b22-000000000006", "name": "Vibrant" }
+		]
+	}
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<title>Apply Lightroom Preset</title>
+		<meta charset="utf-8" />
+		<script src="sdpi-components.js"></script>
+	</head>
+
+	<body>
+		<sdpi-item label="Preset">
+			<sdpi-select
+				setting="presetId"
+				datasource="getPresets"
+				loading="Fetching presets from Lightroom…"
+				placeholder="Select a preset"
+			>
+			</sdpi-select>
+		</sdpi-item>
+
+		<sdpi-item label="Favorites">
+			<sdpi-button id="favoriteButton" onclick="toggleFavorite()">★ Toggle Favorite</sdpi-button>
+			<sdpi-button onclick="requestRefresh()">Refresh Presets</sdpi-button>
+		</sdpi-item>
+
+		<sdpi-item label="Button Title">
+			<sdpi-select setting="titleMode" placeholder="Preset name" onchange="updateCustomTitleVisibility(this.value)">
+				<option value="preset">Preset name</option>
+				<option value="preset-and-status">Preset name + connection status</option>
+				<option value="custom">Custom title</option>
+			</sdpi-select>
+		</sdpi-item>
+
+		<sdpi-item id="customTitleItem" label="Custom Title">
+			<sdpi-textfield setting="customTitle" placeholder="e.g. CONCERT WARM"></sdpi-textfield>
+		</sdpi-item>
+
+		<sdpi-item label="Lightroom">
+			<span id="statusText">Checking connection…</span>
+		</sdpi-item>
+
+		<sdpi-item label="">
+			<span class="sdpi-item-value" style="opacity: 0.6; font-size: 11px">
+				Presets are discovered from Lightroom Desktop/CC via its External Controller API. Lightroom does not expose
+				folder/group information for presets, so this list is flat and alphabetical - use Favorites or the search box
+				above to narrow it down.
+			</span>
+		</sdpi-item>
+
+		<script>
+			const client = window.SDPIComponents.streamDeckClient;
+
+			function requestRefresh() {
+				client.send("sendToPlugin", { event: "refreshPresets" });
+			}
+
+			function toggleFavorite() {
+				const select = document.querySelector('sdpi-select[setting="presetId"]');
+				const presetId = select ? select.value : undefined;
+				if (presetId) {
+					client.send("sendToPlugin", { event: "toggleFavorite", presetId });
+				}
+			}
+
+			function updateCustomTitleVisibility(mode) {
+				const item = document.getElementById("customTitleItem");
+				if (item) {
+					item.style.display = mode === "custom" ? "" : "none";
+				}
+			}
+
+			const STATUS_LABELS = {
+				connected: "🟢 Connected",
+				connecting: "🟡 Connecting…",
+				"not-running": "⚪ Lightroom is not running",
+				disconnected: "🔴 Not connected - enable \"Enable external controllers\" in Lightroom Preferences > Interface",
+				unresponsive: "🟠 Not responding - check for a pairing dialog in Lightroom",
+			};
+
+			function updateStatus(status) {
+				const el = document.getElementById("statusText");
+				if (el) {
+					el.textContent = STATUS_LABELS[status] || status;
+				}
+			}
+
+			client.sendToPropertyInspector.subscribe((ev) => {
+				const payload = ev && ev.payload;
+				if (!payload) {
+					return;
+				}
+				if (payload.event === "connectionStatus") {
+					updateStatus(payload.status);
+				}
+			});
+
+			client.didReceiveSettings.subscribe((ev) => {
+				const settings = ev && ev.payload && ev.payload.settings;
+				updateCustomTitleVisibility(settings ? settings.titleMode : undefined);
+			});
+
+			client.getSettings().then((ev) => {
+				const settings = ev && ev.payload && ev.payload.settings;
+				updateCustomTitleVisibility(settings ? settings.titleMode : undefined);
+			});
+		</script>
+	</body>
+</html>

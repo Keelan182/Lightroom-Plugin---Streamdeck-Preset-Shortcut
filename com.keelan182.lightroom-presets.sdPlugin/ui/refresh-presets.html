@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<title>Refresh Lightroom Presets</title>
+		<meta charset="utf-8" />
+		<script src="sdpi-components.js"></script>
+	</head>
+
+	<body>
+		<sdpi-item label="">
+			<span class="sdpi-item-value">
+				Pressing this button asks Lightroom for its current preset list and updates every "Apply Lightroom Preset"
+				button's cached options. You can also trigger it here for a quick check.
+			</span>
+		</sdpi-item>
+
+		<sdpi-item label="">
+			<sdpi-button onclick="requestRefresh()">Refresh Now</sdpi-button>
+		</sdpi-item>
+
+		<sdpi-item label="Lightroom">
+			<span id="statusText">Checking connection…</span>
+		</sdpi-item>
+
+		<script>
+			const client = window.SDPIComponents.streamDeckClient;
+
+			function requestRefresh() {
+				client.send("sendToPlugin", { event: "refreshPresets" });
+			}
+
+			const STATUS_LABELS = {
+				connected: "🟢 Connected",
+				connecting: "🟡 Connecting…",
+				"not-running": "⚪ Lightroom is not running",
+				disconnected: "🔴 Not connected - enable \"Enable external controllers\" in Lightroom Preferences > Interface",
+				unresponsive: "🟠 Not responding - check for a pairing dialog in Lightroom",
+			};
+
+			function updateStatus(status) {
+				const el = document.getElementById("statusText");
+				if (el) {
+					el.textContent = STATUS_LABELS[status] || status;
+				}
+			}
+
+			client.sendToPropertyInspector.subscribe((ev) => {
+				const payload = ev && ev.payload;
+				if (payload && payload.event === "connectionStatus") {
+					updateStatus(payload.status);
+				}
+			});
+		</script>
+	</body>
+</html>

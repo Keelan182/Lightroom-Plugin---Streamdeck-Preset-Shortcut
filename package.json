@@ -1,0 +1,32 @@
+{
+	"name": "lightroom-presets-streamdeck-plugin",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Stream Deck plugin for applying Adobe Lightroom Desktop/CC develop presets to physical buttons.",
+	"type": "module",
+	"scripts": {
+		"build": "rollup -c && node scripts/generate-icons.mjs",
+		"watch": "rollup -c -w --watch.onEnd=\"streamdeck restart com.keelan182.lightroom-presets\"",
+		"icons": "node scripts/generate-icons.mjs",
+		"typecheck": "tsc --noEmit",
+		"pack": "streamdeck pack com.keelan182.lightroom-presets.sdPlugin"
+	},
+	"devDependencies": {
+		"@elgato/cli": "^1.9.0",
+		"@rollup/plugin-commonjs": "^28.0.0",
+		"@rollup/plugin-node-resolve": "^15.2.3",
+		"@rollup/plugin-terser": "^0.4.4",
+		"@rollup/plugin-typescript": "^12.1.0",
+		"@tsconfig/node20": "^20.1.4",
+		"@types/node": "^20.15.0",
+		"@types/ws": "^8.5.12",
+		"rollup": "^4.24.0",
+		"tslib": "^2.6.3",
+		"typescript": "^5.5.4"
+	},
+	"dependencies": {
+		"@elgato/streamdeck": "^2.1.2",
+		"@elgato/utils": "^0.6.0",
+		"ws": "^8.18.0"
+	}
+}
