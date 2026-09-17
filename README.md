@@ -1,0 +1,1 @@
+# Lightroom-Plugin---Streamdeck-Preset-Shortcut
