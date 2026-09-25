@@ -85,10 +85,19 @@ This plugin - a single long-lived Node.js process (src/plugin.ts)
           │      - onKeyDown -> DevelopControlService.sendCommand() for
           │        whichever flag/rating/color-label command is configured.
           │
-          └── DevelopUtilityAction (com.keelan182.lightroom-presets.develop-utility)
-                 - onKeyDown -> DevelopControlService.sendCommand() for
-                   resetAllDevelopAdjustments / copyEditSettings /
-                   pasteEditSettings.
+          ├── DevelopUtilityAction (com.keelan182.lightroom-presets.develop-utility)
+          │      - onKeyDown -> DevelopControlService.sendCommand() for
+          │        resetAllDevelopAdjustments / copyEditSettings /
+          │        pasteEditSettings.
+          │
+          ├── CopyEditSettingsAction (com.keelan182.lightroom-presets.copy-edit-settings)
+          │      - onKeyDown -> DevelopControlService.sendCommand("copyEditSettings").
+          │        A dedicated, unconfigurable version of Develop Utility's
+          │        "Copy" option, for a zero-setup drag-and-drop shortcut.
+          │
+          └── PasteEditSettingsAction (com.keelan182.lightroom-presets.paste-edit-settings)
+                 - onKeyDown -> DevelopControlService.sendCommand("pasteEditSettings").
+                   Same rationale as CopyEditSettingsAction.
 ```
 
 ## Dial and touch strip support (Stream Deck+)
@@ -122,7 +131,7 @@ feedback API (`DialAction.setFeedback`/`setFeedbackLayout`) rather than
 
 `src/plugin.ts` is the composition root: it constructs one
 `LightroomConnection`, one `PresetManager`, one `PresetApplicationService`,
-and one `DevelopControlService`, injects them into all six actions, wires
+and one `DevelopControlService`, injects them into all eight actions, wires
 `LightroomConnection`'s "status" events to (a) push a live status update to
 whichever property inspector is open and (b) refresh any button titles that
 include the connection status, and starts everything.

@@ -91,6 +91,11 @@ identified and how this plugin talks to it.
 - **Develop Utility**: reset **all** Develop adjustments on the selected
   photo (there's no per-parameter reset command), or copy/paste the whole
   edit-settings stack between photos.
+- **Copy Edit Settings** / **Paste Edit Settings**: the same copy/paste
+  commands as above, but as two dedicated, zero-configuration buttons -
+  drag one of each onto your Stream Deck and they work immediately, no
+  property inspector setup needed. (Develop Utility's copy/paste options
+  still work too, for anyone who'd rather have one configurable button.)
 
 ## Known limitation: no preset folders
 
@@ -153,6 +158,8 @@ src/
     toggleLensCorrection.ts       "Toggle Lens Correction" action
     flagAndRate.ts                "Flag & Rate Photo" action
     developUtility.ts             "Develop Utility" action (reset/copy/paste)
+    copyEditSettings.ts           "Copy Edit Settings" action (dedicated, no config)
+    pasteEditSettings.ts          "Paste Edit Settings" action (dedicated, no config)
 com.keelan182.lightroom-presets.sdPlugin/
   manifest.json
   bin/plugin.js                 built output (committed for convenience)

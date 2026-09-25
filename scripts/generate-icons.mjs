@@ -23,6 +23,10 @@ const PALETTE = {
 	starAmberDark: [163, 108, 10, 255],
 	utilityOrange: [204, 96, 42, 255],
 	utilityOrangeDark: [153, 68, 27, 255],
+	copyGreen: [40, 150, 105, 255],
+	copyGreenDark: [26, 108, 75, 255],
+	pasteIndigo: [88, 90, 209, 255],
+	pasteIndigoDark: [59, 61, 153, 255],
 	white: [255, 255, 255, 255],
 	white70: [255, 255, 255, 178],
 	transparent: [255, 255, 255, 0],
@@ -140,6 +144,35 @@ function drawResetGlyph(canvas, cx, cy, r, thickness, color) {
 		[cx - half, cy],
 	];
 	canvas.fillPolygon(points, color);
+}
+
+/** Two overlapping "pages" - a lighter one behind, a solid one in front - for "copy". */
+function drawCopyGlyph(canvas, cx, cy, r, color, dimColor) {
+	const w = r * 0.95;
+	const h = r * 1.25;
+	const offset = r * 0.28;
+	canvas.fillRoundedRect(cx - w / 2 + offset, cy - h / 2 - offset, cx + w / 2 + offset, cy + h / 2 - offset, r * 0.16, dimColor);
+	canvas.fillRoundedRect(cx - w / 2 - offset * 0.35, cy - h / 2 + offset * 0.5, cx + w / 2 - offset * 0.35, cy + h / 2 + offset * 0.5, r * 0.16, color);
+}
+
+/** An open tray with a downward arrow feeding into it - "paste"/"import". */
+function drawPasteGlyph(canvas, cx, cy, r, color) {
+	const trayHalfWidth = r * 0.62;
+	const trayTop = cy + r * 0.28;
+	const trayBottom = cy + r * 0.78;
+	const thickness = Math.max(1, r * 0.14);
+	canvas.drawThickLine(cx - trayHalfWidth, trayTop, cx - trayHalfWidth, trayBottom, thickness, color);
+	canvas.drawThickLine(cx - trayHalfWidth, trayBottom, cx + trayHalfWidth, trayBottom, thickness, color);
+	canvas.drawThickLine(cx + trayHalfWidth, trayBottom, cx + trayHalfWidth, trayTop, thickness, color);
+	canvas.drawThickLine(cx, cy - r * 0.95, cx, cy + r * 0.1, thickness, color);
+	canvas.fillTriangle(
+		[
+			[cx, cy + r * 0.45],
+			[cx - r * 0.32, cy - r * 0.02],
+			[cx + r * 0.32, cy - r * 0.02],
+		],
+		color,
+	);
 }
 
 function drawWarningTriangle(canvas, cx, cy, size, fillColor, markColor) {
@@ -274,6 +307,46 @@ async function generateDevelopUtilityIcons() {
 	}
 }
 
+async function generateCopyEditSettingsIcons() {
+	for (const [size, suffix] of [
+		[20, ""],
+		[40, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.copyGreen, PALETTE.copyGreenDark);
+		drawCopyGlyph(canvas, size / 2, size / 2, size * 0.24, PALETTE.white, PALETTE.white70);
+		await writePng(canvas, `imgs/actions/copy-edit-settings/icon${suffix}.png`);
+	}
+
+	for (const [size, suffix] of [
+		[72, ""],
+		[144, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.copyGreen, PALETTE.copyGreenDark);
+		drawCopyGlyph(canvas, size / 2, size * 0.4, size * 0.19, PALETTE.white, PALETTE.white70);
+		await writePng(canvas, `imgs/actions/copy-edit-settings/key${suffix}.png`);
+	}
+}
+
+async function generatePasteEditSettingsIcons() {
+	for (const [size, suffix] of [
+		[20, ""],
+		[40, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.pasteIndigo, PALETTE.pasteIndigoDark);
+		drawPasteGlyph(canvas, size / 2, size / 2, size * 0.27, PALETTE.white);
+		await writePng(canvas, `imgs/actions/paste-edit-settings/icon${suffix}.png`);
+	}
+
+	for (const [size, suffix] of [
+		[72, ""],
+		[144, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.pasteIndigo, PALETTE.pasteIndigoDark);
+		drawPasteGlyph(canvas, size / 2, size * 0.4, size * 0.22, PALETTE.white);
+		await writePng(canvas, `imgs/actions/paste-edit-settings/key${suffix}.png`);
+	}
+}
+
 async function generateCategoryIcon() {
 	// Category/action-list icons are rendered by Stream Deck as a template
 	// (white-on-transparent), so this is intentionally monochrome.
@@ -324,6 +397,8 @@ await generateAdjustDevelopSettingIcons();
 await generateToggleLensCorrectionIcons();
 await generateFlagAndRateIcons();
 await generateDevelopUtilityIcons();
+await generateCopyEditSettingsIcons();
+await generatePasteEditSettingsIcons();
 await generateCategoryIcon();
 await generateMarketplaceIcon();
 await generateStateOverlays();

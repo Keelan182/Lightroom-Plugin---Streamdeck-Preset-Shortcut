@@ -2,8 +2,10 @@ import streamDeck from "@elgato/streamdeck";
 
 import { AdjustDevelopSettingAction } from "./actions/adjustDevelopSetting.js";
 import { ApplyPresetAction } from "./actions/applyPreset.js";
+import { CopyEditSettingsAction } from "./actions/copyEditSettings.js";
 import { DevelopUtilityAction } from "./actions/developUtility.js";
 import { FlagAndRateAction } from "./actions/flagAndRate.js";
+import { PasteEditSettingsAction } from "./actions/pasteEditSettings.js";
 import { RefreshPresetsAction } from "./actions/refreshPresets.js";
 import { ToggleLensCorrectionAction } from "./actions/toggleLensCorrection.js";
 import { LightroomConnection } from "./lightroom/connection.js";
@@ -28,6 +30,8 @@ const adjustDevelopSettingAction = new AdjustDevelopSettingAction(lightroomConne
 const toggleLensCorrectionAction = new ToggleLensCorrectionAction(lightroomConnection, developControlService);
 const flagAndRateAction = new FlagAndRateAction(lightroomConnection, developControlService);
 const developUtilityAction = new DevelopUtilityAction(lightroomConnection, developControlService);
+const copyEditSettingsAction = new CopyEditSettingsAction(lightroomConnection, developControlService);
+const pasteEditSettingsAction = new PasteEditSettingsAction(lightroomConnection, developControlService);
 
 streamDeck.actions.registerAction(applyPresetAction);
 streamDeck.actions.registerAction(refreshPresetsAction);
@@ -35,6 +39,8 @@ streamDeck.actions.registerAction(adjustDevelopSettingAction);
 streamDeck.actions.registerAction(toggleLensCorrectionAction);
 streamDeck.actions.registerAction(flagAndRateAction);
 streamDeck.actions.registerAction(developUtilityAction);
+streamDeck.actions.registerAction(copyEditSettingsAction);
+streamDeck.actions.registerAction(pasteEditSettingsAction);
 
 // Property inspectors open after any earlier "status" event may have fired,
 // so push a snapshot the moment one appears rather than leaving it stuck on
