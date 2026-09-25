@@ -121,13 +121,72 @@ message it cannot actually verify. This is a known, documented limitation
 (see docs/TROUBLESHOOTING.md), not a claim that the plugin can detect that
 specific case.
 
-## Other observed commands (not used by this plugin)
+## Develop-parameter, toggle, and workflow commands
 
-The same API exposes many Develop-parameter commands (`increment`,
-`decrement`, `setValue` for exposure/contrast/etc.), flagging/rating,
-color labels, and a few workflow commands. This plugin only implements
-`register`, `getPresetIDs`, `getPresetName`, and `applyPreset` because
-presets are the only thing in scope here.
+Beyond presets, the same API exposes continuous Develop-parameter
+adjustment, on/off settings, and a handful of parameter-less workflow
+commands, all used by the "Adjust Develop Setting", "Toggle Lens
+Correction", "Flag & Rate Photo", and "Develop Utility" actions. The exact
+parameter-name strings below are **observed**, not documented by Adobe -
+sourced from a real, working third-party plugin's code (see "Prior art"
+below), the same way the preset commands were.
+
+**Continuous adjustments** - `increment`/`decrement` with
+`params: [parameterName, amount]`, where `amount` is a positive magnitude
+in Lightroom's own units for that parameter (e.g. Exposure moves in whole
+stops, so `1.0` is a full stop; Temperature is in Kelvin, so a step of
+`50` is a modest nudge):
+
+| Group | Parameter name | Label |
+|---|---|---|
+| Light | `Exposure2012` | Exposure |
+| Light | `Contrast2012` | Contrast |
+| Light | `Highlights2012` | Highlights |
+| Light | `Shadows2012` | Shadows |
+| Light | `Whites2012` | Whites |
+| Light | `Blacks2012` | Blacks |
+| Color | `Temperature` | White Balance: Temperature |
+| Color | `Tint` | White Balance: Tint |
+| Color | `Vibrance` | Vibrance |
+| Color | `Saturation` | Saturation |
+| Effects | `Texture` | Texture |
+| Effects | `Clarity2012` | Clarity |
+| Effects | `Dehaze` | Dehaze |
+| Detail | `Sharpness` | Sharpening |
+| Detail | `LuminanceSmoothing` | Noise Reduction: Luminance |
+| Detail | `ColorNoiseReduction` | Noise Reduction: Color |
+
+This plugin sends **one batched `increment`/`decrement` call per dial
+rotation event**, sized by however many ticks were turned
+(`amount = ticks * stepSize`), rather than one call per tick - an
+improvement over the reference project, which looped a separate WebSocket
+call per tick.
+
+**On/off settings** - `setValue` with `params: [parameterName, 0 | 1]`.
+There is no corresponding "get" command, so a value set this way can never
+be read back - `Toggle Lens Correction`'s on-screen ON/OFF state is only
+what this plugin itself last set, not a live read of Lightroom's actual
+state (see docs/TROUBLESHOOTING.md).
+
+| Parameter name | Label |
+|---|---|
+| `LensProfileEnable` | Lens Profile Corrections |
+| `AutoLateralCA` | Remove Chromatic Aberration |
+
+**Parameter-less commands** - just `{ "message": "<name>" }`, no params:
+
+| Command | Label |
+|---|---|
+| `flagPick` / `flagReject` / `flagUnflag` | Flag: Pick / Reject / Remove Flag |
+| `rating0` … `rating5` | Rating: 0–5 stars |
+| `colorLabelRed` / `Yellow` / `Green` / `Blue` / `Purple` / `None` | Color Label |
+| `resetAllDevelopAdjustments` | Reset **all** Develop settings on the photo - there is no per-parameter reset command |
+| `copyEditSettings` / `pasteEditSettings` | Copy/paste the whole edit-settings stack between photos |
+
+As with `applyPreset`, none of these return a structured success/failure
+signal beyond the generic `success` flag - Lightroom confirms it accepted
+the command, not that a photo was selected or that the value visibly
+changed.
 
 ## Prior art / attribution
 

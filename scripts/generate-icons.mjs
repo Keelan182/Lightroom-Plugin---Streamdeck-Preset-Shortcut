@@ -15,6 +15,14 @@ const PALETTE = {
 	presetPurpleDark: [79, 53, 168, 255],
 	refreshTeal: [22, 163, 148, 255],
 	refreshTealDark: [15, 118, 108, 255],
+	dialBlue: [37, 110, 214, 255],
+	dialBlueDark: [24, 76, 158, 255],
+	lensCyan: [12, 150, 176, 255],
+	lensCyanDark: [8, 105, 128, 255],
+	starAmber: [214, 149, 24, 255],
+	starAmberDark: [163, 108, 10, 255],
+	utilityOrange: [204, 96, 42, 255],
+	utilityOrangeDark: [153, 68, 27, 255],
 	white: [255, 255, 255, 255],
 	white70: [255, 255, 255, 178],
 	transparent: [255, 255, 255, 0],
@@ -80,6 +88,60 @@ function drawCheckmark(canvas, cx, cy, size, thickness, color) {
 	canvas.drawThickLine(cx - size * 0.12, cy + size * 0.4, cx + size * 0.55, cy - size * 0.35, thickness, color);
 }
 
+/** A rotary knob: outer ring, small filled center, a pointer line in the gap, and graduation ticks around the rim. */
+function drawDialGlyph(canvas, cx, cy, r, color) {
+	canvas.annulus(cx, cy, r * 0.82, r, color);
+	canvas.fillCircle(cx, cy, r * 0.22, color);
+	const pointerAngle = -Math.PI / 2;
+	canvas.drawThickLine(
+		cx + Math.cos(pointerAngle) * r * 0.22,
+		cy + Math.sin(pointerAngle) * r * 0.22,
+		cx + Math.cos(pointerAngle) * r * 0.75,
+		cy + Math.sin(pointerAngle) * r * 0.75,
+		Math.max(1, r * 0.13),
+		color,
+	);
+	for (let i = 0; i < 8; i++) {
+		const angle = (i / 8) * Math.PI * 2;
+		const x0 = cx + Math.cos(angle) * r * 1.08;
+		const y0 = cy + Math.sin(angle) * r * 1.08;
+		const x1 = cx + Math.cos(angle) * r * 1.28;
+		const y1 = cy + Math.sin(angle) * r * 1.28;
+		canvas.drawThickLine(x0, y0, x1, y1, Math.max(1, r * 0.07), color);
+	}
+}
+
+/** A camera-lens/aperture glyph: two concentric rings and an off-center highlight. */
+function drawLensGlyph(canvas, cx, cy, r, color) {
+	canvas.annulus(cx, cy, r * 0.86, r, color);
+	canvas.annulus(cx, cy, r * 0.42, r * 0.6, color);
+	canvas.fillCircle(cx - r * 0.18, cy - r * 0.18, r * 0.12, color);
+}
+
+/** A simple 5-point star for flagging/rating. */
+function drawStarGlyph(canvas, cx, cy, r, color) {
+	const points = [];
+	for (let i = 0; i < 10; i++) {
+		const angle = -Math.PI / 2 + (i / 10) * Math.PI * 2;
+		const radius = i % 2 === 0 ? r : r * 0.45;
+		points.push([cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius]);
+	}
+	canvas.fillPolygon(points, color);
+}
+
+/** A full ring with a rotated square "reset" mark in the center, distinct from the refresh arrow glyph. */
+function drawResetGlyph(canvas, cx, cy, r, thickness, color) {
+	canvas.annulus(cx, cy, r - thickness, r, color);
+	const half = r * 0.32;
+	const points = [
+		[cx, cy - half],
+		[cx + half, cy],
+		[cx, cy + half],
+		[cx - half, cy],
+	];
+	canvas.fillPolygon(points, color);
+}
+
 function drawWarningTriangle(canvas, cx, cy, size, fillColor, markColor) {
 	const h = size * 0.9;
 	const points = [
@@ -132,6 +194,86 @@ async function generateRefreshPresetIcons() {
 	}
 }
 
+async function generateAdjustDevelopSettingIcons() {
+	for (const [size, suffix] of [
+		[20, ""],
+		[40, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.dialBlue, PALETTE.dialBlueDark);
+		drawDialGlyph(canvas, size / 2, size / 2, size * 0.24, PALETTE.white);
+		await writePng(canvas, `imgs/actions/adjust-develop-setting/icon${suffix}.png`);
+	}
+
+	for (const [size, suffix] of [
+		[72, ""],
+		[144, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.dialBlue, PALETTE.dialBlueDark);
+		drawDialGlyph(canvas, size / 2, size * 0.42, size * 0.19, PALETTE.white);
+		await writePng(canvas, `imgs/actions/adjust-develop-setting/key${suffix}.png`);
+	}
+}
+
+async function generateToggleLensCorrectionIcons() {
+	for (const [size, suffix] of [
+		[20, ""],
+		[40, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.lensCyan, PALETTE.lensCyanDark);
+		drawLensGlyph(canvas, size / 2, size / 2, size * 0.3, PALETTE.white);
+		await writePng(canvas, `imgs/actions/toggle-lens-correction/icon${suffix}.png`);
+	}
+
+	for (const [size, suffix] of [
+		[72, ""],
+		[144, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.lensCyan, PALETTE.lensCyanDark);
+		drawLensGlyph(canvas, size / 2, size * 0.42, size * 0.24, PALETTE.white);
+		await writePng(canvas, `imgs/actions/toggle-lens-correction/key${suffix}.png`);
+	}
+}
+
+async function generateFlagAndRateIcons() {
+	for (const [size, suffix] of [
+		[20, ""],
+		[40, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.starAmber, PALETTE.starAmberDark);
+		drawStarGlyph(canvas, size / 2, size / 2, size * 0.3, PALETTE.white);
+		await writePng(canvas, `imgs/actions/flag-and-rate/icon${suffix}.png`);
+	}
+
+	for (const [size, suffix] of [
+		[72, ""],
+		[144, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.starAmber, PALETTE.starAmberDark);
+		drawStarGlyph(canvas, size / 2, size * 0.42, size * 0.24, PALETTE.white);
+		await writePng(canvas, `imgs/actions/flag-and-rate/key${suffix}.png`);
+	}
+}
+
+async function generateDevelopUtilityIcons() {
+	for (const [size, suffix] of [
+		[20, ""],
+		[40, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.utilityOrange, PALETTE.utilityOrangeDark);
+		drawResetGlyph(canvas, size / 2, size / 2, size * 0.3, Math.max(1.5, size * 0.09), PALETTE.white);
+		await writePng(canvas, `imgs/actions/develop-utility/icon${suffix}.png`);
+	}
+
+	for (const [size, suffix] of [
+		[72, ""],
+		[144, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.utilityOrange, PALETTE.utilityOrangeDark);
+		drawResetGlyph(canvas, size / 2, size * 0.42, size * 0.24, Math.max(2, size * 0.09), PALETTE.white);
+		await writePng(canvas, `imgs/actions/develop-utility/key${suffix}.png`);
+	}
+}
+
 async function generateCategoryIcon() {
 	// Category/action-list icons are rendered by Stream Deck as a template
 	// (white-on-transparent), so this is intentionally monochrome.
@@ -178,6 +320,10 @@ async function generateStateOverlays() {
 
 await generateApplyPresetIcons();
 await generateRefreshPresetIcons();
+await generateAdjustDevelopSettingIcons();
+await generateToggleLensCorrectionIcons();
+await generateFlagAndRateIcons();
+await generateDevelopUtilityIcons();
 await generateCategoryIcon();
 await generateMarketplaceIcon();
 await generateStateOverlays();

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<title>Flag &amp; Rate Photo</title>
+		<meta charset="utf-8" />
+		<script src="sdpi-components.js"></script>
+	</head>
+
+	<body>
+		<sdpi-item label="Action">
+			<sdpi-select setting="commandId" placeholder="Select an action">
+				<optgroup label="Flag">
+					<option value="flagPick">Pick</option>
+					<option value="flagReject">Reject</option>
+					<option value="flagUnflag">Remove Flag</option>
+				</optgroup>
+				<optgroup label="Rating">
+					<option value="rating0">0 stars</option>
+					<option value="rating1">1 star</option>
+					<option value="rating2">2 stars</option>
+					<option value="rating3">3 stars</option>
+					<option value="rating4">4 stars</option>
+					<option value="rating5">5 stars</option>
+				</optgroup>
+				<optgroup label="Color Label">
+					<option value="colorLabelRed">Red</option>
+					<option value="colorLabelYellow">Yellow</option>
+					<option value="colorLabelGreen">Green</option>
+					<option value="colorLabelBlue">Blue</option>
+					<option value="colorLabelPurple">Purple</option>
+					<option value="colorLabelNone">None</option>
+				</optgroup>
+			</sdpi-select>
+		</sdpi-item>
+
+		<sdpi-item label="Lightroom">
+			<span id="statusText">Checking connection…</span>
+		</sdpi-item>
+
+		<sdpi-item label="">
+			<span class="sdpi-item-value" style="opacity: 0.6; font-size: 11px">
+				Applies to whatever photo is currently selected in Lightroom. Lightroom acknowledges the command but this
+				plugin cannot verify it was actually applied to a photo (e.g. if none is selected).
+			</span>
+		</sdpi-item>
+
+		<script>
+			const client = window.SDPIComponents.streamDeckClient;
+
+			const STATUS_LABELS = {
+				connected: "🟢 Connected",
+				connecting: "🟡 Connecting…",
+				"not-running": "⚪ Lightroom is not running",
+				disconnected: "🔴 Not connected - enable \"Enable external controllers\" in Lightroom Preferences > Interface",
+				unresponsive: "🟠 Not responding - check for a pairing dialog in Lightroom",
+			};
+
+			function updateStatus(status) {
+				const el = document.getElementById("statusText");
+				if (el) {
+					el.textContent = STATUS_LABELS[status] || status;
+				}
+			}
+
+			client.sendToPropertyInspector.subscribe((ev) => {
+				const payload = ev && ev.payload;
+				if (payload && payload.event === "connectionStatus") {
+					updateStatus(payload.status);
+				}
+			});
+		</script>
+	</body>
+</html>

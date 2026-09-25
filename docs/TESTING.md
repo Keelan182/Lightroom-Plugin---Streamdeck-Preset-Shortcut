@@ -41,6 +41,42 @@ before assuming the architecture is wrong - most likely causes are the
 external-controllers setting, an unanswered pairing dialog, or a
 process-name mismatch in the `pgrep` check.
 
+## Develop controls (new actions, added after the initial preset plugin)
+
+None of this was testable without physical Stream Deck+ hardware and a
+live Lightroom session - treat all of it as unverified until you've run it.
+
+- [ ] **Adjust Develop Setting**: assign to a Stream Deck+ dial, pick
+      "Exposure", open a photo, turn the dial one click clockwise ->
+      Lightroom's exposure should visibly increase by the configured step.
+      Turn counter-clockwise -> decreases.
+- [ ] Hold the dial down while turning it -> the change should be
+      noticeably bigger (5x) than turning it unheld.
+- [ ] Press the dial without turning it -> only the touch strip's bar
+      indicator should recenter; re-open the photo's Develop panel in
+      Lightroom and confirm the actual exposure value is unchanged.
+- [ ] Try a few other parameters (Temperature, Tint, Clarity) and confirm
+      each maps to the right Lightroom control, not a different one -
+      this is the one place a wrong parameter-name string would be
+      silently wrong rather than erroring.
+- [ ] Assigning "Adjust Develop Setting" to a regular button (not a dial)
+      on a non-Stream Deck+ device - confirm it's simply not offered as
+      droppable there (Encoder-only manifest declaration), rather than
+      behaving oddly.
+- [ ] **Toggle Lens Correction**: press once with "Lens Profile
+      Corrections" selected -> Lightroom's lens corrections checkbox
+      should toggle. Press again -> toggles back. Then change the same
+      checkbox directly inside Lightroom and press the Stream Deck button -
+      confirm (and note) that the button's ON/OFF state was already stale
+      before you pressed it, per the documented limitation.
+- [ ] **Flag & Rate Photo**: try a flag, a star rating, and a color label
+      on a selected photo; confirm each lands on the correct photo and the
+      correct value (e.g. "Rating: 3 stars" doesn't set 4).
+- [ ] **Develop Utility**: "Reset All Develop Adjustments" on a photo with
+      several edits - confirm every adjustment resets, not just one.
+      "Copy Edit Settings" on one photo then "Paste Edit Settings" on
+      another - confirm the second photo's edits now match the first.
+
 ## Connection
 
 - [ ] Lightroom closed when Stream Deck/plugin starts -> button shows "No

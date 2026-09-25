@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<title>Adjust Develop Setting</title>
+		<meta charset="utf-8" />
+		<script src="sdpi-components.js"></script>
+	</head>
+
+	<body>
+		<sdpi-item label="Parameter">
+			<sdpi-select setting="parameterId" placeholder="Select a parameter">
+				<optgroup label="Light">
+					<option value="Exposure2012">Exposure</option>
+					<option value="Contrast2012">Contrast</option>
+					<option value="Highlights2012">Highlights</option>
+					<option value="Shadows2012">Shadows</option>
+					<option value="Whites2012">Whites</option>
+					<option value="Blacks2012">Blacks</option>
+				</optgroup>
+				<optgroup label="Color">
+					<option value="Temperature">White Balance: Temperature</option>
+					<option value="Tint">White Balance: Tint</option>
+					<option value="Vibrance">Vibrance</option>
+					<option value="Saturation">Saturation</option>
+				</optgroup>
+				<optgroup label="Effects">
+					<option value="Texture">Texture</option>
+					<option value="Clarity2012">Clarity</option>
+					<option value="Dehaze">Dehaze</option>
+				</optgroup>
+				<optgroup label="Detail">
+					<option value="Sharpness">Sharpening</option>
+					<option value="LuminanceSmoothing">Noise Reduction: Luminance</option>
+					<option value="ColorNoiseReduction">Noise Reduction: Color</option>
+				</optgroup>
+			</sdpi-select>
+		</sdpi-item>
+
+		<sdpi-item label="Step size">
+			<sdpi-textfield setting="stepOverride" placeholder="Leave blank for the default step size" type="number" step="0.01"></sdpi-textfield>
+		</sdpi-item>
+
+		<sdpi-item label="Lightroom">
+			<span id="statusText">Checking connection…</span>
+		</sdpi-item>
+
+		<sdpi-item label="">
+			<span class="sdpi-item-value" style="opacity: 0.6; font-size: 11px">
+				Only usable on a Stream Deck+ dial. Rotate to adjust; hold the dial down while rotating for a 5x bigger step.
+				Pressing the dial (without rotating) just recenters the touch strip's position indicator - it does not reset
+				the setting in Lightroom. The touch strip cannot show Lightroom's real current value; Lightroom's External
+				Controller API has no way to read it back.
+			</span>
+		</sdpi-item>
+
+		<script>
+			const client = window.SDPIComponents.streamDeckClient;
+
+			const STATUS_LABELS = {
+				connected: "🟢 Connected",
+				connecting: "🟡 Connecting…",
+				"not-running": "⚪ Lightroom is not running",
+				disconnected: "🔴 Not connected - enable \"Enable external controllers\" in Lightroom Preferences > Interface",
+				unresponsive: "🟠 Not responding - check for a pairing dialog in Lightroom",
+			};
+
+			function updateStatus(status) {
+				const el = document.getElementById("statusText");
+				if (el) {
+					el.textContent = STATUS_LABELS[status] || status;
+				}
+			}
+
+			client.sendToPropertyInspector.subscribe((ev) => {
+				const payload = ev && ev.payload;
+				if (payload && payload.event === "connectionStatus") {
+					updateStatus(payload.status);
+				}
+			});
+		</script>
+	</body>
+</html>

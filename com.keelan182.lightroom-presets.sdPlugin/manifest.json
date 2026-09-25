@@ -1,6 +1,6 @@
 {
 	"Name": "Lightroom Presets",
-	"Version": "1.0.0.0",
+	"Version": "1.1.0.0",
 	"Author": "keelan182",
 	"Actions": [
 		{
@@ -36,12 +36,86 @@
 					"FontSize": 13
 				}
 			]
+		},
+		{
+			"Name": "Adjust Develop Setting",
+			"UUID": "com.keelan182.lightroom-presets.adjust-develop-setting",
+			"Icon": "imgs/actions/adjust-develop-setting/icon",
+			"Tooltip": "Turn a Stream Deck+ dial to adjust a Lightroom Develop setting (exposure, white balance, and more) on the selected photo.",
+			"PropertyInspectorPath": "ui/adjust-develop-setting.html",
+			"Controllers": [
+				"Encoder"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/adjust-develop-setting/key",
+					"TitleAlignment": "middle"
+				}
+			],
+			"Encoder": {
+				"layout": "$B1",
+				"TriggerDescription": {
+					"Rotate": "Adjust value (hold + rotate for a bigger step)",
+					"Push": "Recenter indicator"
+				}
+			}
+		},
+		{
+			"Name": "Toggle Lens Correction",
+			"UUID": "com.keelan182.lightroom-presets.toggle-lens-correction",
+			"Icon": "imgs/actions/toggle-lens-correction/icon",
+			"Tooltip": "Turns a Lightroom lens correction setting on or off (lens profile corrections, chromatic aberration removal).",
+			"PropertyInspectorPath": "ui/toggle-lens-correction.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/toggle-lens-correction/key",
+					"TitleAlignment": "bottom",
+					"FontSize": 13
+				}
+			]
+		},
+		{
+			"Name": "Flag & Rate Photo",
+			"UUID": "com.keelan182.lightroom-presets.flag-and-rate",
+			"Icon": "imgs/actions/flag-and-rate/icon",
+			"Tooltip": "Flags, star-rates, or color-labels the currently selected photo in Lightroom.",
+			"PropertyInspectorPath": "ui/flag-and-rate.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/flag-and-rate/key",
+					"TitleAlignment": "bottom",
+					"FontSize": 13
+				}
+			]
+		},
+		{
+			"Name": "Develop Utility",
+			"UUID": "com.keelan182.lightroom-presets.develop-utility",
+			"Icon": "imgs/actions/develop-utility/icon",
+			"Tooltip": "Resets all Develop adjustments, or copies/pastes edit settings between photos.",
+			"PropertyInspectorPath": "ui/develop-utility.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/develop-utility/key",
+					"TitleAlignment": "bottom",
+					"FontSize": 13
+				}
+			]
 		}
 	],
 	"Category": "Lightroom Presets",
 	"CategoryIcon": "imgs/plugin/category-icon",
 	"CodePath": "bin/plugin.js",
-	"Description": "Assign Adobe Lightroom Desktop/CC develop presets to Stream Deck buttons and apply them to the selected photo instantly, via Lightroom's own External Controller API.",
+	"Description": "Control Adobe Lightroom Desktop/CC from Stream Deck: apply presets, adjust Develop settings with dials, toggle lens corrections, flag/rate photos, and more - via Lightroom's own External Controller API.",
 	"Icon": "imgs/plugin/marketplace",
 	"SDKVersion": 2,
 	"Software": {

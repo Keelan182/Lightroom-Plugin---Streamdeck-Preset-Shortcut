@@ -1,8 +1,9 @@
 # Lightroom Presets - Stream Deck Plugin
 
-Assign individual Adobe **Lightroom Desktop/CC** develop presets to
-individual Stream Deck buttons, and apply them to the currently selected
-photo with a single press - no opening the Presets panel, no searching, no
+Control Adobe **Lightroom Desktop/CC** from a Stream Deck: apply develop
+presets, adjust exposure/white balance/and more with a Stream Deck+ dial,
+toggle lens corrections, flag and star-rate photos, and reset/copy/paste
+edit settings - all with no opening panels, no menu-diving, and no
 Lightroom Classic.
 
 ```
@@ -38,6 +39,8 @@ identified and how this plugin talks to it.
   Node.js runtime natively on either architecture; no universal-binary
   build step is needed).
 - Elgato Stream Deck app 6.5+.
+- A **Stream Deck+** is only needed for the dial-based "Adjust Develop
+  Setting" action; every other action works on any Stream Deck.
 - Adobe Lightroom Desktop/CC (the cloud-based app - **not** Lightroom
   Classic), with **Preferences > Interface > "Enable external
   controllers"** turned on.
@@ -48,15 +51,12 @@ identified and how this plugin talks to it.
    repo ships a prebuilt copy at the repo root; see "Build from source"
    below to regenerate it).
 2. Double-click it. The Stream Deck app installs it and shows a "Lightroom
-   Presets" category with two actions: **Apply Lightroom Preset** and
-   **Refresh Lightroom Presets**.
+   Presets" category with six actions (see "Using it" below).
 3. In Lightroom Desktop/CC: Preferences > Interface > enable "Enable
    external controllers", then restart Lightroom.
-4. Drag **Apply Lightroom Preset** onto a button, open its settings, and
-   pick a preset from the dropdown (click "Refresh Presets" first if it's
-   empty). Repeat for as many buttons as you like - each one is independent.
-5. Optionally add **Refresh Lightroom Presets** to a button so you can
-   re-sync the list on demand after adding/renaming presets in Lightroom.
+4. Drag whichever actions you want onto buttons or (for the dial action)
+   a Stream Deck+ dial, configure each one, and go - each button/dial keeps
+   its own independent settings.
 
 ## Using it
 
@@ -68,10 +68,29 @@ identified and how this plugin talks to it.
 - **Refresh Lightroom Presets**: re-discovers every preset from Lightroom
   and updates every button's cached list; if a button's assigned preset
   no longer exists, that button flips to an alert state telling you which
-  preset went missing.
-- The plugin also auto-refreshes its preset cache the first time it detects
-  a Lightroom connection in a session, so you don't have to remember to
-  press Refresh after every plugin/Lightroom restart.
+  preset went missing. The plugin also auto-refreshes its preset cache the
+  first time it detects a Lightroom connection in a session.
+- **Adjust Develop Setting** *(Stream Deck+ dial only)*: pick a Develop
+  parameter (Exposure, Contrast, Highlights, Shadows, Whites, Blacks,
+  White Balance Temperature/Tint, Vibrance, Saturation, Texture, Clarity,
+  Dehaze, Sharpening, or Noise Reduction), optionally override its default
+  step size, then turn the dial to adjust it on the selected photo - hold
+  the dial down while turning for a 5x bigger step. The touch strip shows
+  the parameter name and the delta just sent; it can't show Lightroom's
+  actual current value (the API doesn't expose one - see
+  docs/PROTOCOL.md). Pressing the dial just recenters the touch strip's
+  cosmetic position indicator, it doesn't change anything in Lightroom.
+- **Toggle Lens Correction**: flips "Lens Profile Corrections" or "Remove
+  Chromatic Aberration" on/off each press. The ON/OFF shown on the button
+  is this plugin's own memory of what it last set, not a live read of
+  Lightroom (there's no way to query that - see docs/PROTOCOL.md), so it
+  can drift if you also change the same setting inside Lightroom directly.
+- **Flag & Rate Photo**: pick one action (Pick/Reject/Remove Flag, a 0-5
+  star rating, or a color label) and apply it to the selected photo with
+  one press.
+- **Develop Utility**: reset **all** Develop adjustments on the selected
+  photo (there's no per-parameter reset command), or copy/paste the whole
+  edit-settings stack between photos.
 
 ## Known limitation: no preset folders
 
@@ -125,14 +144,19 @@ src/
     connection.ts               WebSocket client for Lightroom's External Controller API
     presetManager.ts             preset discovery + on-disk cache
     presetApplication.ts         validates + applies a preset, typed errors
+    developControl.ts            adjust/toggle/command calls for Develop settings, typed errors
     paths.ts, types.ts
   actions/
     applyPreset.ts                "Apply Lightroom Preset" action
     refreshPresets.ts             "Refresh Lightroom Presets" action
+    adjustDevelopSetting.ts       "Adjust Develop Setting" dial (Encoder) action
+    toggleLensCorrection.ts       "Toggle Lens Correction" action
+    flagAndRate.ts                "Flag & Rate Photo" action
+    developUtility.ts             "Develop Utility" action (reset/copy/paste)
 com.keelan182.lightroom-presets.sdPlugin/
   manifest.json
   bin/plugin.js                 built output (committed for convenience)
-  ui/apply-preset.html, ui/refresh-presets.html, ui/sdpi-components.js
+  ui/*.html, ui/sdpi-components.js
   imgs/                         generated icons (scripts/generate-icons.mjs)
 scripts/
   png.mjs                        dependency-free PNG encoder + tiny 2D canvas

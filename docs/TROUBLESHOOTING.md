@@ -95,6 +95,36 @@ changes in Lightroom.
 3. Quit and relaunch the Stream Deck app after installing/updating the
    plugin.
 
+## "Adjust Develop Setting" doesn't show up as an option on my button
+
+That action is Encoder-only (`"Controllers": ["Encoder"]` in the
+manifest) - it can only be assigned to a **dial** on a Stream Deck+, not a
+regular key. This is intentional: continuous rotation is what makes it
+useful, and there's no meaningful "one click" equivalent worth building
+for a plain button.
+
+## The dial turns but nothing changes in Lightroom
+
+Check the touch strip - if it shows "No Lightroom" / "Not Connected" /
+"No Response" instead of the parameter name, the dial rotation was
+rejected for the same reasons a preset button would fail (see the
+connection-related sections above). If it shows the parameter name and a
+delta value, the request was sent - check the plugin log for the actual
+`increment`/`decrement` call and Lightroom's response, and confirm you're
+looking at the right control in Lightroom's Develop panel (parameter names
+like "Whites" and "Highlights" are easy to mix up at a glance).
+
+## "Toggle Lens Correction" shows the wrong ON/OFF state
+
+This plugin cannot ask Lightroom for a setting's current value - the
+External Controller API only supports *setting* `LensProfileEnable` and
+`AutoLateralCA`, not reading them back (see docs/PROTOCOL.md). The button
+only reflects what this plugin itself last set. If you toggle the same
+checkbox inside Lightroom directly, the button's displayed state goes
+stale until you press it again (which will now toggle it to the opposite
+of what's actually showing in Lightroom - press it a second time to
+correct it).
+
 ## This plugin cannot detect "no photo selected" precisely
 
 Lightroom's `applyPreset` command does not return a distinct, documented

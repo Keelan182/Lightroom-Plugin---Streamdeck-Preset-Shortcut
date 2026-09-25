@@ -33,6 +33,21 @@ This plugin - a single long-lived Node.js process (src/plugin.ts)
    │        PresetApplicationError the UI layer can render without knowing
    │        anything about sockets or JSON shapes.
    │
+   ├── DevelopControlService          (src/lightroom/developControl.ts)
+   │      - adjustParameter(id, amount): "increment"/"decrement" for
+   │        continuous Develop settings (exposure, white balance, etc.).
+   │      - setToggle(id, 0|1): "setValue" for on/off settings (lens
+   │        profile corrections, chromatic aberration removal).
+   │      - sendCommand(id): fire-and-forget commands (flagging, rating,
+   │        color labels, reset/copy/paste).
+   │      - Same connection-status checks and typed-error pattern as
+   │        PresetApplicationService, kept as a separate class because
+   │        presets and live Develop-parameter control are different
+   │        concerns that happen to share one connection.
+   │      - DEVELOP_PARAMETERS/DEVELOP_TOGGLES/DEVELOP_COMMANDS export the
+   │        fixed catalogs of supported parameter names (see
+   │        docs/PROTOCOL.md for where those exact strings came from).
+   │
    └── Stream Deck actions            (src/actions/)
           ├── ApplyPresetAction    (com.keelan182.lightroom-presets.apply-preset)
           │      - Per-instance settings: presetId, presetName (fallback
@@ -50,15 +65,64 @@ This plugin - a single long-lived Node.js process (src/plugin.ts)
           │        plugin.ts) to update every visible button after a
           │        refresh or a connection-status change.
           │
-          └── RefreshPresetsAction (com.keelan182.lightroom-presets.refresh-presets)
-                 - onKeyDown -> PresetManager.refresh(), then asks
-                   ApplyPresetAction to flag any button whose preset id
-                   disappeared.
+          ├── RefreshPresetsAction (com.keelan182.lightroom-presets.refresh-presets)
+          │      - onKeyDown -> PresetManager.refresh(), then asks
+          │        ApplyPresetAction to flag any button whose preset id
+          │        disappeared.
+          │
+          ├── AdjustDevelopSettingAction (com.keelan182.lightroom-presets.adjust-develop-setting)
+          │      - A Stream Deck+ **dial (Encoder)** action, not a button -
+          │        see "Dial and touch strip support" below.
+          │
+          ├── ToggleLensCorrectionAction (com.keelan182.lightroom-presets.toggle-lens-correction)
+          │      - onKeyDown -> DevelopControlService.setToggle(), flips a
+          │        locally-tracked isOn flag and shows it in the title
+          │        (ON/OFF) - Lightroom's API can't be queried for the real
+          │        current value, so this is a best-effort mirror, not a
+          │        live read (see docs/PROTOCOL.md).
+          │
+          ├── FlagAndRateAction (com.keelan182.lightroom-presets.flag-and-rate)
+          │      - onKeyDown -> DevelopControlService.sendCommand() for
+          │        whichever flag/rating/color-label command is configured.
+          │
+          └── DevelopUtilityAction (com.keelan182.lightroom-presets.develop-utility)
+                 - onKeyDown -> DevelopControlService.sendCommand() for
+                   resetAllDevelopAdjustments / copyEditSettings /
+                   pasteEditSettings.
 ```
 
+## Dial and touch strip support (Stream Deck+)
+
+`AdjustDevelopSettingAction` is the one action that isn't a button: its
+manifest entry declares `"Controllers": ["Encoder"]`, so it can only be
+assigned to a **dial** on a Stream Deck+, and it uses the SDK's touch-strip
+feedback API (`DialAction.setFeedback`/`setFeedbackLayout`) rather than
+`setTitle`/`setImage`.
+
+- **Rotate** (`onDialRotate`): the event payload gives a signed `ticks`
+  count and a `pressed` flag (was the dial held down while it was turned).
+  This plugin computes `delta = ticks * stepSize * (pressed ? 5 : 1)` and
+  sends **one** batched `increment`/`decrement` request for that whole
+  rotation - not one request per tick, which is what the reference project
+  studied for this plugin does (see docs/PROTOCOL.md). Holding the dial
+  down while turning it applies a 5x coarser step, entirely from the SDK's
+  own `pressed` flag - no extra UI or settings needed for that.
+- **Push** (`onDialDown`): recenters a cosmetic 0-100 "indicator" position
+  shown on the touch strip. This is purely a UI reset for this plugin's own
+  display - Lightroom's own value is completely untouched, since there is
+  no "reset this one parameter" command in its API (only
+  `resetAllDevelopAdjustments`, which resets every Develop setting at
+  once - see the `develop-utility` action).
+- **Touch strip content**: uses Stream Deck's built-in `$B1` layout (a
+  title + a value + a bar indicator). The value/indicator do **not**
+  reflect Lightroom's actual current setting - there's no API to read that
+  back - they show the parameter name and the delta just sent, plus that
+  cosmetic indicator position. This is disclosed directly in the action's
+  property inspector, not just in this doc.
+
 `src/plugin.ts` is the composition root: it constructs one
-`LightroomConnection`, one `PresetManager`, and one
-`PresetApplicationService`, injects them into both actions, wires
+`LightroomConnection`, one `PresetManager`, one `PresetApplicationService`,
+and one `DevelopControlService`, injects them into all six actions, wires
 `LightroomConnection`'s "status" events to (a) push a live status update to
 whichever property inspector is open and (b) refresh any button titles that
 include the connection status, and starts everything.

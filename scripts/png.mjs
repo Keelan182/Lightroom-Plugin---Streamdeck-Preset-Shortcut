@@ -136,9 +136,39 @@ export class Canvas {
 		}
 	}
 
+	/** Fills an arbitrary simple polygon (convex or concave) via even-odd ray casting - used for stars, chevrons, etc. */
+	fillPolygon(points, color) {
+		const xs = points.map((p) => p[0]);
+		const ys = points.map((p) => p[1]);
+		const minX = Math.floor(Math.min(...xs));
+		const maxX = Math.ceil(Math.max(...xs));
+		const minY = Math.floor(Math.min(...ys));
+		const maxY = Math.ceil(Math.max(...ys));
+		for (let y = minY; y <= maxY; y++) {
+			for (let x = minX; x <= maxX; x++) {
+				if (pointInPolygon(x + 0.5, y + 0.5, points)) {
+					this.setPixel(x, y, color);
+				}
+			}
+		}
+	}
+
 	toPngBuffer() {
 		return encodePng(this.width, this.height, this.data);
 	}
+}
+
+function pointInPolygon(px, py, points) {
+	let inside = false;
+	for (let i = 0, j = points.length - 1; i < points.length; j = i++) {
+		const [xi, yi] = points[i];
+		const [xj, yj] = points[j];
+		const intersects = yi > py !== yj > py && px < ((xj - xi) * (py - yi)) / (yj - yi) + xi;
+		if (intersects) {
+			inside = !inside;
+		}
+	}
+	return inside;
 }
 
 function withAlpha(color, alpha) {
