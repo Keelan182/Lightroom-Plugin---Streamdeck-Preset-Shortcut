@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<title>Adjust Color Mixer</title>
+		<meta charset="utf-8" />
+		<script src="sdpi-components.js"></script>
+	</head>
+
+	<body>
+		<sdpi-item label="Color">
+			<sdpi-select setting="color" placeholder="Select a color">
+				<option value="Red">Red</option>
+				<option value="Orange">Orange</option>
+				<option value="Yellow">Yellow</option>
+				<option value="Green">Green</option>
+				<option value="Aqua">Aqua</option>
+				<option value="Blue">Blue</option>
+				<option value="Purple">Purple</option>
+				<option value="Magenta">Magenta</option>
+			</sdpi-select>
+		</sdpi-item>
+
+		<sdpi-item label="Slider">
+			<sdpi-select setting="attribute" placeholder="Select a slider">
+				<option value="Hue">Hue</option>
+				<option value="Saturation">Saturation</option>
+				<option value="Luminance">Luminance</option>
+			</sdpi-select>
+		</sdpi-item>
+
+		<sdpi-item label="Step size">
+			<sdpi-textfield setting="stepOverride" placeholder="Leave blank for the default (2)" type="number" step="0.1"></sdpi-textfield>
+		</sdpi-item>
+
+		<sdpi-item label="Lightroom">
+			<span id="statusText">Checking connection…</span>
+		</sdpi-item>
+
+		<sdpi-item label="">
+			<span class="sdpi-item-value" style="opacity: 0.6; font-size: 11px">
+				Only usable on a Stream Deck+ dial. Rotate to adjust the chosen color's Hue, Saturation, or Luminance
+				slider; hold the dial down while rotating for a 5x bigger step. Pressing the dial (without rotating) only
+				recenters the touch strip's position indicator - it does not reset the slider in Lightroom. The touch strip
+				cannot show Lightroom's real current value; its External Controller API has no way to read it back.
+			</span>
+		</sdpi-item>
+
+		<script>
+			const client = window.SDPIComponents.streamDeckClient;
+
+			const STATUS_LABELS = {
+				connected: "🟢 Connected",
+				connecting: "🟡 Connecting…",
+				"not-running": "⚪ Lightroom is not running",
+				disconnected: "🔴 Not connected - enable \"Enable external controllers\" in Lightroom Preferences > Interface",
+				unresponsive: "🟠 Not responding - check for a pairing dialog in Lightroom",
+			};
+
+			function updateStatus(status) {
+				const el = document.getElementById("statusText");
+				if (el) {
+					el.textContent = STATUS_LABELS[status] || status;
+				}
+			}
+
+			client.sendToPropertyInspector.subscribe((ev) => {
+				const payload = ev && ev.payload;
+				if (payload && payload.event === "connectionStatus") {
+					updateStatus(payload.status);
+				}
+			});
+		</script>
+	</body>
+</html>

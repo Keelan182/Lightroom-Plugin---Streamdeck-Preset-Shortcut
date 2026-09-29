@@ -36,6 +36,38 @@ export const DEVELOP_PARAMETERS: DevelopParameter[] = [
 	{ id: "ColorNoiseReduction", label: "Noise Reduction: Color", group: "Detail", defaultStep: 2 },
 ];
 
+/**
+ * The 8 color channels in Lightroom's Color Mixer (HSL) panel, in the same
+ * order the panel itself displays its swatches.
+ */
+export const COLOR_MIXER_COLORS = ["Red", "Orange", "Yellow", "Green", "Aqua", "Blue", "Purple", "Magenta"] as const;
+export type ColorMixerColor = (typeof COLOR_MIXER_COLORS)[number];
+
+export const COLOR_MIXER_ATTRIBUTES = ["Hue", "Saturation", "Luminance"] as const;
+export type ColorMixerAttribute = (typeof COLOR_MIXER_ATTRIBUTES)[number];
+
+/**
+ * Builds the Develop parameter id for one Color Mixer swatch's Hue,
+ * Saturation, or Luminance slider, e.g. `("Aqua", "Luminance")` ->
+ * `"LuminanceAdjustmentAqua"`.
+ *
+ * Unlike the other parameter ids in this file, these were not observed
+ * directly from a real External Controller API plugin (the reference
+ * project studied for this project has no Color Mixer support at all -
+ * see docs/PROTOCOL.md). They are Lightroom's own stable
+ * `crs:HueAdjustment<Color>` / `crs:SaturationAdjustment<Color>` /
+ * `crs:LuminanceAdjustment<Color>` XMP field names - the same naming
+ * scheme every other Develop parameter in this file already follows
+ * 1:1 (Exposure2012, Temperature, Vibrance, etc. are also literal XMP
+ * field names), cross-checked against MIDI2LR's own published command
+ * list for Lightroom's Develop engine. High confidence, but genuinely
+ * one step less verified than the rest of this file - see
+ * docs/PROTOCOL.md for the full note.
+ */
+export function colorMixerParameterId(color: ColorMixerColor, attribute: ColorMixerAttribute): string {
+	return `${attribute}Adjustment${color}`;
+}
+
 /** An on/off Develop setting, set via "setValue" with 0 or 1 - not readable back, only settable (see docs/PROTOCOL.md). */
 export interface DevelopToggle {
 	id: string;

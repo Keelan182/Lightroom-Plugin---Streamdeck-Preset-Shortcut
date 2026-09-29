@@ -162,6 +162,28 @@ rotation event**, sized by however many ticks were turned
 improvement over the reference project, which looped a separate WebSocket
 call per tick.
 
+**Color Mixer (HSL) adjustments** - same `increment`/`decrement` mechanism
+as above, used by the "Adjust Color Mixer" action, with parameter names of
+the form `<Attribute>Adjustment<Color>`:
+
+| Colors | Attributes |
+|---|---|
+| Red, Orange, Yellow, Green, Aqua, Blue, Purple, Magenta | Hue, Saturation, Luminance |
+
+e.g. `HueAdjustmentRed`, `SaturationAdjustmentAqua`, `LuminanceAdjustmentPurple`
+(24 combinations total). **These names are one verification tier below
+everything else in this document**: they were not observed in
+adamkarnowka/loupedeck-lightroom-cc (the reference project this plugin's
+other Develop parameter names come from), which doesn't implement Color
+Mixer controls. Instead, they're cross-checked against two independent
+sources that agree exactly: Adobe's own `crs:` XMP namespace field names
+(a stable, long-documented on-disk format for Lightroom edit metadata) and
+the `rsjaffe/MIDI2LR` project's published command list, which implements
+Color Mixer control against the same External Controller API this plugin
+uses. Treat this as strong evidence, not confirmed-by-observation fact,
+until it's been tested against a live Lightroom session (see
+docs/TESTING.md).
+
 **On/off settings** - `setValue` with `params: [parameterName, 0 | 1]`.
 There is no corresponding "get" command, so a value set this way can never
 be read back - `Toggle Lens Correction`'s on-screen ON/OFF state is only

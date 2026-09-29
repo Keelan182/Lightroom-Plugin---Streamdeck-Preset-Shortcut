@@ -95,11 +95,11 @@ changes in Lightroom.
 3. Quit and relaunch the Stream Deck app after installing/updating the
    plugin.
 
-## "Adjust Develop Setting" doesn't show up as an option on my button
+## "Adjust Develop Setting" / "Adjust Color Mixer" doesn't show up as an option on my button
 
-That action is Encoder-only (`"Controllers": ["Encoder"]` in the
-manifest) - it can only be assigned to a **dial** on a Stream Deck+, not a
-regular key. This is intentional: continuous rotation is what makes it
+Both actions are Encoder-only (`"Controllers": ["Encoder"]` in the
+manifest) - they can only be assigned to a **dial** on a Stream Deck+, not a
+regular key. This is intentional: continuous rotation is what makes them
 useful, and there's no meaningful "one click" equivalent worth building
 for a plain button.
 
@@ -113,6 +113,14 @@ delta value, the request was sent - check the plugin log for the actual
 `increment`/`decrement` call and Lightroom's response, and confirm you're
 looking at the right control in Lightroom's Develop panel (parameter names
 like "Whites" and "Highlights" are easy to mix up at a glance).
+
+For "Adjust Color Mixer" specifically: also confirm you've picked **both**
+a color and a slider in the property inspector - the touch strip shows
+"Select a color + slider" and the dial does nothing until both are set.
+These parameter names (`HueAdjustmentRed` and so on) are the least-verified
+in this plugin - see the caveat in docs/PROTOCOL.md - so if a specific
+color/slider combination consistently does nothing or hits the wrong
+control, that's useful to report.
 
 ## "Toggle Lens Correction" shows the wrong ON/OFF state
 

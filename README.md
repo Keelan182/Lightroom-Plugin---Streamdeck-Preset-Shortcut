@@ -80,6 +80,16 @@ identified and how this plugin talks to it.
   actual current value (the API doesn't expose one - see
   docs/PROTOCOL.md). Pressing the dial just recenters the touch strip's
   cosmetic position indicator, it doesn't change anything in Lightroom.
+- **Adjust Color Mixer** *(Stream Deck+ dial only)*: pick one of the 8
+  Color Mixer swatches (Red, Orange, Yellow, Green, Aqua, Blue, Purple,
+  Magenta) and one of its three sliders (Hue, Saturation, Luminance), then
+  turn the dial to adjust that slider on the selected photo - same
+  step-size override, hold-for-5x-bigger-step, and "can't show the real
+  current value" behavior as Adjust Develop Setting above. The underlying
+  parameter names (`HueAdjustmentRed`, `SaturationAdjustmentAqua`, etc.)
+  are cross-checked against Lightroom's own stable XMP field-naming scheme
+  rather than observed directly in the reference plugin - see
+  docs/PROTOCOL.md for the verification-tier caveat.
 - **Toggle Lens Correction**: flips "Lens Profile Corrections" or "Remove
   Chromatic Aberration" on/off each press. The ON/OFF shown on the button
   is this plugin's own memory of what it last set, not a live read of
@@ -155,6 +165,7 @@ src/
     applyPreset.ts                "Apply Lightroom Preset" action
     refreshPresets.ts             "Refresh Lightroom Presets" action
     adjustDevelopSetting.ts       "Adjust Develop Setting" dial (Encoder) action
+    adjustColorMixer.ts           "Adjust Color Mixer" dial (Encoder) action
     toggleLensCorrection.ts       "Toggle Lens Correction" action
     flagAndRate.ts                "Flag & Rate Photo" action
     developUtility.ts             "Develop Utility" action (reset/copy/paste)

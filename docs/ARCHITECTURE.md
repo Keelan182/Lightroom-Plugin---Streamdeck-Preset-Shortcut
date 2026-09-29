@@ -74,6 +74,14 @@ This plugin - a single long-lived Node.js process (src/plugin.ts)
           │      - A Stream Deck+ **dial (Encoder)** action, not a button -
           │        see "Dial and touch strip support" below.
           │
+          ├── AdjustColorMixerAction (com.keelan182.lightroom-presets.adjust-color-mixer)
+          │      - Also a Stream Deck+ **dial (Encoder)** action, same
+          │        rotate/push behavior as AdjustDevelopSettingAction, but
+          │        settings hold a (color, attribute) pair instead of a
+          │        single parameter id; DevelopControlService.colorMixerParameterId()
+          │        maps that pair to the `<Attribute>Adjustment<Color>`
+          │        string sent to Lightroom.
+          │
           ├── ToggleLensCorrectionAction (com.keelan182.lightroom-presets.toggle-lens-correction)
           │      - onKeyDown -> DevelopControlService.setToggle(), flips a
           │        locally-tracked isOn flag and shows it in the title
@@ -102,11 +110,14 @@ This plugin - a single long-lived Node.js process (src/plugin.ts)
 
 ## Dial and touch strip support (Stream Deck+)
 
-`AdjustDevelopSettingAction` is the one action that isn't a button: its
-manifest entry declares `"Controllers": ["Encoder"]`, so it can only be
-assigned to a **dial** on a Stream Deck+, and it uses the SDK's touch-strip
-feedback API (`DialAction.setFeedback`/`setFeedbackLayout`) rather than
-`setTitle`/`setImage`.
+`AdjustDevelopSettingAction` and `AdjustColorMixerAction` are the two
+actions that aren't buttons: their manifest entries declare
+`"Controllers": ["Encoder"]`, so they can only be assigned to a **dial** on
+a Stream Deck+, and they use the SDK's touch-strip feedback API
+(`DialAction.setFeedback`/`setFeedbackLayout`) rather than
+`setTitle`/`setImage`. Everything below applies equally to both; the only
+difference is what settings pick the target parameter id (a flat dropdown
+for Adjust Develop Setting, a color+attribute pair for Adjust Color Mixer).
 
 - **Rotate** (`onDialRotate`): the event payload gives a signed `ticks`
   count and a `pressed` flag (was the dial held down while it was turned).
@@ -131,7 +142,7 @@ feedback API (`DialAction.setFeedback`/`setFeedbackLayout`) rather than
 
 `src/plugin.ts` is the composition root: it constructs one
 `LightroomConnection`, one `PresetManager`, one `PresetApplicationService`,
-and one `DevelopControlService`, injects them into all eight actions, wires
+and one `DevelopControlService`, injects them into all nine actions, wires
 `LightroomConnection`'s "status" events to (a) push a live status update to
 whichever property inspector is open and (b) refresh any button titles that
 include the connection status, and starts everything.

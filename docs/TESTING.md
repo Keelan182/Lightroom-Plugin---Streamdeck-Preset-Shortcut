@@ -63,6 +63,16 @@ live Lightroom session - treat all of it as unverified until you've run it.
       on a non-Stream Deck+ device - confirm it's simply not offered as
       droppable there (Encoder-only manifest declaration), rather than
       behaving oddly.
+- [ ] **Adjust Color Mixer**: assign to a Stream Deck+ dial, pick "Red" +
+      "Hue", open a photo, turn the dial -> the Color Mixer panel's Red
+      Hue slider should move. Repeat for at least one other color (e.g.
+      Aqua) and each of the other two attributes (Saturation, Luminance),
+      confirming each combination maps to the right swatch and slider -
+      this is the one place a wrong parameter-name string would be
+      silently wrong rather than erroring, and these particular names are
+      the least-verified in the whole plugin (see docs/PROTOCOL.md).
+- [ ] Hold the dial down while turning it for "Adjust Color Mixer" ->
+      same 5x bigger step as "Adjust Develop Setting".
 - [ ] **Toggle Lens Correction**: press once with "Lens Profile
       Corrections" selected -> Lightroom's lens corrections checkbox
       should toggle. Press again -> toggles back. Then change the same

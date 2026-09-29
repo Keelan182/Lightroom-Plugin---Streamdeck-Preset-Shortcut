@@ -27,10 +27,24 @@ const PALETTE = {
 	copyGreenDark: [26, 108, 75, 255],
 	pasteIndigo: [88, 90, 209, 255],
 	pasteIndigoDark: [59, 61, 153, 255],
+	mixerCharcoal: [58, 58, 66, 255],
+	mixerCharcoalDark: [32, 32, 38, 255],
 	white: [255, 255, 255, 255],
 	white70: [255, 255, 255, 178],
 	transparent: [255, 255, 255, 0],
 };
+
+/** The 8 Color Mixer swatch hues, in panel order, for the color-mixer glyph. */
+const COLOR_MIXER_SWATCHES = [
+	[224, 68, 68, 255], // Red
+	[227, 138, 45, 255], // Orange
+	[214, 196, 48, 255], // Yellow
+	[70, 178, 92, 255], // Green
+	[46, 178, 176, 255], // Aqua
+	[62, 112, 224, 255], // Blue
+	[132, 82, 214, 255], // Purple
+	[214, 68, 176, 255], // Magenta
+];
 
 async function writePng(canvas, relativePath) {
 	const absolute = path.join(SD_PLUGIN_DIR, relativePath);
@@ -175,6 +189,18 @@ function drawPasteGlyph(canvas, cx, cy, r, color) {
 	);
 }
 
+/** A ring of the 8 Color Mixer swatch colors around a white center - mirrors the panel's own swatch row. */
+function drawColorMixerGlyph(canvas, cx, cy, r) {
+	const dotR = r * 0.24;
+	for (let i = 0; i < COLOR_MIXER_SWATCHES.length; i++) {
+		const angle = -Math.PI / 2 + (i / COLOR_MIXER_SWATCHES.length) * Math.PI * 2;
+		const x = cx + Math.cos(angle) * r * 0.76;
+		const y = cy + Math.sin(angle) * r * 0.76;
+		canvas.fillCircle(x, y, dotR, COLOR_MIXER_SWATCHES[i]);
+	}
+	canvas.fillCircle(cx, cy, r * 0.34, PALETTE.white);
+}
+
 function drawWarningTriangle(canvas, cx, cy, size, fillColor, markColor) {
 	const h = size * 0.9;
 	const points = [
@@ -244,6 +270,28 @@ async function generateAdjustDevelopSettingIcons() {
 		const canvas = background(size, PALETTE.dialBlue, PALETTE.dialBlueDark);
 		drawDialGlyph(canvas, size / 2, size * 0.42, size * 0.19, PALETTE.white);
 		await writePng(canvas, `imgs/actions/adjust-develop-setting/key${suffix}.png`);
+	}
+}
+
+async function generateAdjustColorMixerIcons() {
+	// Dark, neutral background (matching Lightroom's own Color Mixer panel
+	// theme) since the glyph itself is already multi-colored.
+	for (const [size, suffix] of [
+		[20, ""],
+		[40, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.mixerCharcoal, PALETTE.mixerCharcoalDark);
+		drawColorMixerGlyph(canvas, size / 2, size / 2, size * 0.32);
+		await writePng(canvas, `imgs/actions/adjust-color-mixer/icon${suffix}.png`);
+	}
+
+	for (const [size, suffix] of [
+		[72, ""],
+		[144, "@2x"],
+	]) {
+		const canvas = background(size, PALETTE.mixerCharcoal, PALETTE.mixerCharcoalDark);
+		drawColorMixerGlyph(canvas, size / 2, size * 0.42, size * 0.26);
+		await writePng(canvas, `imgs/actions/adjust-color-mixer/key${suffix}.png`);
 	}
 }
 
@@ -394,6 +442,7 @@ async function generateStateOverlays() {
 await generateApplyPresetIcons();
 await generateRefreshPresetIcons();
 await generateAdjustDevelopSettingIcons();
+await generateAdjustColorMixerIcons();
 await generateToggleLensCorrectionIcons();
 await generateFlagAndRateIcons();
 await generateDevelopUtilityIcons();

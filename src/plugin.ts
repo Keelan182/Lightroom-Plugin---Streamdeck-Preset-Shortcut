@@ -1,5 +1,6 @@
 import streamDeck from "@elgato/streamdeck";
 
+import { AdjustColorMixerAction } from "./actions/adjustColorMixer.js";
 import { AdjustDevelopSettingAction } from "./actions/adjustDevelopSetting.js";
 import { ApplyPresetAction } from "./actions/applyPreset.js";
 import { CopyEditSettingsAction } from "./actions/copyEditSettings.js";
@@ -27,6 +28,7 @@ const developControlService = new DevelopControlService(lightroomConnection, log
 const applyPresetAction = new ApplyPresetAction(lightroomConnection, presetManager, presetApplicationService);
 const refreshPresetsAction = new RefreshPresetsAction(lightroomConnection, presetManager, applyPresetAction);
 const adjustDevelopSettingAction = new AdjustDevelopSettingAction(lightroomConnection, developControlService);
+const adjustColorMixerAction = new AdjustColorMixerAction(lightroomConnection, developControlService);
 const toggleLensCorrectionAction = new ToggleLensCorrectionAction(lightroomConnection, developControlService);
 const flagAndRateAction = new FlagAndRateAction(lightroomConnection, developControlService);
 const developUtilityAction = new DevelopUtilityAction(lightroomConnection, developControlService);
@@ -36,6 +38,7 @@ const pasteEditSettingsAction = new PasteEditSettingsAction(lightroomConnection,
 streamDeck.actions.registerAction(applyPresetAction);
 streamDeck.actions.registerAction(refreshPresetsAction);
 streamDeck.actions.registerAction(adjustDevelopSettingAction);
+streamDeck.actions.registerAction(adjustColorMixerAction);
 streamDeck.actions.registerAction(toggleLensCorrectionAction);
 streamDeck.actions.registerAction(flagAndRateAction);
 streamDeck.actions.registerAction(developUtilityAction);
