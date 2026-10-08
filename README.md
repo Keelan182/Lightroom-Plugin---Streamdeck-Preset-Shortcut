@@ -76,3 +76,42 @@ Notes:
 - If Lightroom has no profile for a lens (manual lenses, adapted glass with no electronic contacts, missing metadata), profile correction stays on but has nothing to apply. Remove CA still works, because it doesn't need a profile.
 - Many mirrorless raw files carry a built-in lens profile that Lightroom always applies. On those photos this preset just adds Remove CA.
 - Install it the same way as the presets above: **File → Import Profiles & Presets…** and pick the `.xmp` or the zip. It appears under **Presets → Yours → Lens Corrections**.
+
+## Concert Contrast + Fade presets
+
+`presets/Concert Contrast + Fade/` (zipped as `dist/Concert-Contrast-Fade-Presets.zip`) has 19 contrast/fade combinations plus a reset, in the preset group **Concert Contrast + Fade**.
+
+Each preset sets **only the master point curve** (the RGB/luminance curve in Point Curve mode), plus the curve's name label. These stay untouched:
+- the Red/Green/Blue channel curves, so the presets stack with **Concert LED Skin Fix** in either order
+- the parametric curve sliders
+- Exposure, Contrast, Blacks and every other setting
+
+### The grid
+
+The name tells you the contrast level (**C**) and the fade level (**F**). For example, `C3 Strong - F2 Medium Fade` is strong contrast with a medium black fade.
+
+| | F0 No Fade (black 0) | F1 Light Fade (black 12) | F2 Medium Fade (black 24) | F3 Heavy Fade (black 40) |
+|---|---|---|---|---|
+| **C0 Flat** (no S) | Reset Luminance Curve | ✓ | ✓ | ✓ |
+| **C1 Soft** (S 8) | ✓ | ✓ | ✓ | ✓ |
+| **C2 Medium** (S 14) | ✓ | ✓ | ✓ | ✓ |
+| **C3 Strong** (S 20) | ✓ | ✓ | ✓ | ✓ |
+| **C4 Punchy** (S 28) | ✓ | ✓ | ✓ | ✓ |
+
+The **S** number is how far the curve darkens the shadows and brightens the light tones, measured in 0–255 levels at the strongest point. The midpoint (128 → 128) and the white point (255 → 255) never move, so overall brightness and highlights stay put.
+
+The **black** number is the output level that pure black is lifted to, which gives a matte/film fade. The lift is strongest in the deep blacks and fades out through the shadows, so midtones barely move (+1 to +5) and highlights don't change at all. Shadows look washed out, but the rest of the image keeps its contrast.
+
+### Tips for stage shots
+
+- Black stage backgrounds turn charcoal from about **F2** up. **F1** is usually enough to soften crushed blacks without making the image look grey.
+- Clicking a different preset in this group replaces the master curve. The effects don't add up.
+- **Reset Luminance Curve** sets the master curve back to linear.
+
+### Tweaking
+
+Edit `CONTRAST`, `FADE` or `FADE_FALLOFF` in `tools/generate_contrast_presets.py`, then run:
+
+```sh
+python3 tools/generate_contrast_presets.py
+```

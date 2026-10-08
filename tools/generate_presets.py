@@ -21,6 +21,7 @@ import math
 import uuid
 import zipfile
 from pathlib import Path
+from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).resolve().parent.parent
 GROUP = "Concert LED Skin Fix"
@@ -138,7 +139,7 @@ def alt(tag, text):
     return (
         f"   <crs:{tag}>\n"
         f"    <rdf:Alt>\n"
-        f'     <rdf:li xml:lang="x-default">{text}</rdf:li>\n'
+        f'     <rdf:li xml:lang="x-default">{escape(text)}</rdf:li>\n'
         f"    </rdf:Alt>\n"
         f"   </crs:{tag}>"
     )
