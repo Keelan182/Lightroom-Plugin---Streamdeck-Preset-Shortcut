@@ -131,3 +131,25 @@ Edit `CONTRAST`, `FADE`, `HIGHLIGHTS`, `FADE_FALLOFF` or `HIGHLIGHT_FALLOFF` in 
 ```sh
 python3 tools/generate_contrast_presets.py
 ```
+
+## Concert Grain presets
+
+The group **Concert Grain** (`dist/Concert-Grain-Presets.zip`) has 8 grain levels plus a "Grain Off" preset. Each preset sets **only** the three Grain sliders in the Effects panel: Amount, Size and Roughness. Nothing else changes, so you can use them alongside every other preset group.
+
+| Preset | Amount | Size | Roughness |
+|---|---|---|---|
+| Grain 1 - Whisper | 8 | 15 | 30 |
+| Grain 2 - Faint | 15 | 18 | 35 |
+| Grain 3 - Light | 22 | 20 | 40 |
+| Grain 4 - Fine | 30 | 25 | 45 |
+| Grain 5 - Medium | 40 | 30 | 50 |
+| Grain 6 - Visible | 50 | 35 | 55 |
+| Grain 7 - Strong | 62 | 42 | 62 |
+| Grain 8 - Heavy Film | 75 | 50 | 70 |
+| Grain Off | 0 | 25 (default) | 50 (default) |
+
+As Amount goes up, Size and Roughness go up with it. That way the heavy end looks like clumpy film grain, not just stronger digital noise.
+
+How grain looks depends on viewing size. Lightroom draws grain at the image's pixel scale, so the same preset looks stronger on a small export than in a 100% view. Check it at your export size. If the top levels look too coarse on a low-resolution file, drop down one level.
+
+To change the levels, edit `LEVELS` in `tools/generate_grain_presets.py`, then run `python3 tools/generate_grain_presets.py`.
