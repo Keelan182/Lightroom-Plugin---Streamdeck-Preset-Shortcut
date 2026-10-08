@@ -59,3 +59,20 @@ python3 tools/generate_presets.py
 ```
 
 This regenerates `presets/Concert LED Skin Fix/*.xmp` and the zip. Preset UUIDs stay the same from run to run. If you re-import and see duplicates, delete the old group in Lightroom first.
+
+## Lens Corrections preset
+
+`presets/Lens Corrections/Lens Profile + Remove CA.xmp` (zipped as `dist/Lens-Corrections-Preset.zip`) sets exactly three things and nothing else:
+
+| Setting | Value | Lightroom UI |
+|---|---|---|
+| `crs:LensProfileEnable` | `1` | Optics → **Use Profile Correction** on |
+| `crs:LensProfileSetup` | `Auto` | Optics → Setup: **Auto** |
+| `crs:AutoLateralCA` | `1` | Optics → **Remove Chromatic Aberration** on |
+
+The preset deliberately does **not** name a specific lens. With Setup = Auto, Lightroom reads each photo's lens metadata (lens make/model, focal length, aperture, focus distance) and picks the matching profile per image, so one click works across every lens in a batch. The profile's Distortion and Vignetting amounts are left as they are (100 by default).
+
+Notes:
+- If Lightroom has no profile for a lens (manual lenses, adapted glass with no electronic contacts, missing metadata), profile correction stays on but has nothing to apply. Remove CA still works, because it doesn't need a profile.
+- Many mirrorless raw files carry a built-in lens profile that Lightroom always applies. On those photos this preset just adds Remove CA.
+- Install it the same way as the presets above: **File → Import Profiles & Presets…** and pick the `.xmp` or the zip. It appears under **Presets → Yours → Lens Corrections**.
