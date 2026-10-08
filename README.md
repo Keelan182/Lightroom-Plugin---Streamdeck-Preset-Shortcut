@@ -79,7 +79,16 @@ Notes:
 
 ## Concert Contrast + Fade presets
 
-`presets/Concert Contrast + Fade/` (zipped as `dist/Concert-Contrast-Fade-Presets.zip`) has 19 contrast/fade combinations plus a reset, in the preset group **Concert Contrast + Fade**.
+There are 80 presets: 5 contrast levels × 4 black fades × 4 highlight levels. That's 79 combinations plus a reset. They're split across four preset groups, one per highlight level, and all four groups are in one zip, `dist/Concert-Contrast-Fade-Presets.zip`:
+
+| Group | Highlights | White point |
+|---|---|---|
+| **Concert Contrast + Fade** | H0 Full Whites (untouched) | 255 |
+| **Concert Contrast + Fade - H1 Soft Highlights** | soft roll-off | 245 |
+| **Concert Contrast + Fade - H2 Medium Highlights** | medium roll-off | 235 |
+| **Concert Contrast + Fade - H3 Matte Highlights** | heavy, filmic roll-off | 225 |
+
+Every group has the same contrast × fade grid shown below. In the H1–H3 groups, preset names end with the highlight level, for example `C3 Strong - F2 Medium Fade - H1 Soft Highlights`. Each H group also has `C0 Flat - F0 No Fade - H<n>`, which only rolls off the highlights.
 
 Each preset sets **only the master point curve** (the RGB/luminance curve in Point Curve mode), plus the curve's name label. These stay untouched:
 - the Red/Green/Blue channel curves, so the presets stack with **Concert LED Skin Fix** in either order
@@ -102,15 +111,22 @@ The **S** number is how far the curve darkens the shadows and brightens the ligh
 
 The **black** number is the output level that pure black is lifted to, which gives a matte/film fade. The lift is strongest in the deep blacks and fades out through the shadows, so midtones barely move (+1 to +5) and highlights don't change at all. Shadows look washed out, but the rest of the image keeps its contrast.
 
+### Highlight roll-off
+
+The white point is pulled down to 245, 235 or 225. The pull is strongest at pure white and tapers off toward the midtones, the mirror image of the black fade, so the shadows aren't affected. This tames blown-out spotlights, haze and cymbal flares, and gives a softer, printed-film look.
+
+Side effects at **H3**: the midtones darken slightly (about −4 at the midpoint), and the upper light tones lose a bit of the punch that the S-curve added. Nothing in the image can reach pure white anymore, so use H3 on purpose, as a look, not as a default.
+
 ### Tips for stage shots
 
 - Black stage backgrounds turn charcoal from about **F2** up. **F1** is usually enough to soften crushed blacks without making the image look grey.
-- Clicking a different preset in this group replaces the master curve. The effects don't add up.
+- Clicking any preset in these groups replaces the whole master curve. The effects don't add up.
+- A good starting point for a natural matte look is **H1 + F1**. For a heavy film look, try **H3 + F3**.
 - **Reset Luminance Curve** sets the master curve back to linear.
 
 ### Tweaking
 
-Edit `CONTRAST`, `FADE` or `FADE_FALLOFF` in `tools/generate_contrast_presets.py`, then run:
+Edit `CONTRAST`, `FADE`, `HIGHLIGHTS`, `FADE_FALLOFF` or `HIGHLIGHT_FALLOFF` in `tools/generate_contrast_presets.py`, then run:
 
 ```sh
 python3 tools/generate_contrast_presets.py
