@@ -1,0 +1,240 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\froman\fcharset0 Times-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c0\c1\c1;\cssrgb\c100000\c100000\c99985;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}
+{\list\listtemplateid7\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid601\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid7}
+{\list\listtemplateid8\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid701\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid8}
+{\list\listtemplateid9\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid801\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid9}
+{\list\listtemplateid10\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid901\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid10}
+{\list\listtemplateid11\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1001\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid11}
+{\list\listtemplateid12\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid12}
+{\list\listtemplateid13\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid13}
+{\list\listtemplateid14\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid14}
+{\list\listtemplateid15\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid15}
+{\list\listtemplateid16\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid16}
+{\list\listtemplateid17\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1601\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid17}
+{\list\listtemplateid18\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1701\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid18}
+{\list\listtemplateid19\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1801\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid19}
+{\list\listtemplateid20\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1901\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid20}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}{\listoverride\listid8\listoverridecount0\ls8}{\listoverride\listid9\listoverridecount0\ls9}{\listoverride\listid10\listoverridecount0\ls10}{\listoverride\listid11\listoverridecount0\ls11}{\listoverride\listid12\listoverridecount0\ls12}{\listoverride\listid13\listoverridecount0\ls13}{\listoverride\listid14\listoverridecount0\ls14}{\listoverride\listid15\listoverridecount0\ls15}{\listoverride\listid16\listoverridecount0\ls16}{\listoverride\listid17\listoverridecount0\ls17}{\listoverride\listid18\listoverridecount0\ls18}{\listoverride\listid19\listoverridecount0\ls19}{\listoverride\listid20\listoverridecount0\ls20}}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Different Film types list:\
+\
+Color Slide (Reversal) Film\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf2 \strokec3 Kodachrome (1935-2009)
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 ISO 25, 64, and 200 versions. Processed with the complex K-14 process, so it was only developed at specialized labs. The last lab to process it stopped in 2010.\
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Deep, rich reds and yellows, strong contrast, and a distinctive "warm but crisp" rendering.\
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Exceptional dark-storage archival stability, with very little fade over decades.\
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Associated with National Geographic and Steve McCurry's 
+\f2\i \cf2 \strokec3 Afghan Girl
+\f1\i0 \cf2 \strokec3  (1984).\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Fujifilm Velvia (1990-present, 50 and 100)
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Extreme saturation, especially in greens, blues, and magentas, with high contrast and a narrow exposure latitude.\
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Very fine grain at ISO 50. The standard stock for landscape photography.\
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Can shift warm/magenta in shade and shows reciprocity failure on long exposures.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Fujifilm Provia 100F
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Neutral, accurate color with moderate saturation and extremely fine grain.\
+\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 A more "faithful" counterpart to Velvia. Popular for product and general-purpose work.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Kodak Ektachrome (E100 reintroduced 2018)
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls4\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 E-6 process, so it can be processed by many labs.\
+\ls4\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Cleaner, cooler, more neutral palette than Kodachrome, with a slightly blue bias in older versions.\
+\ls4\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Fine grain and good sharpness.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf2 \strokec3 Color Negative Film\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf2 \strokec3 Kodak Portra (160, 400, 800)
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls5\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 The benchmark portrait and wedding film. Soft contrast, muted pastels, and natural, smooth skin tones.\
+\ls5\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Very wide exposure latitude. It tolerates 1-2 stops of overexposure especially well and keeps highlights smooth.\
+\ls5\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Very fine grain for its speed.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Kodak Ektar 100
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls6\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Among the finest-grained color negative films ever made, with very high sharpness.\
+\ls6\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Saturated, punchy colors with strong reds and a slight warm cast. Closer to slide-film rendering.\
+\ls6\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Less forgiving with skin tones. Better suited to landscape, travel, and architecture.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Kodak Gold 200 (Kodacolor Gold lineage)
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls7\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Warm, golden-yellow cast, medium saturation, and visible but pleasant grain.\
+\ls7\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Strongly associated with 1990s consumer snapshots and a nostalgic, "family photo" look.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Fujifilm Pro 400H (discontinued 2021) / Superia line
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls8\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Pro 400H: pastel, airy colors with cool-leaning greens and cyan-blue shadows. Fuji's fourth color layer improved skin-tone and fluorescent-light rendering.\
+\ls8\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Superia (e.g., 400): more saturated, with punchy greens and blues and a slightly cool palette versus Kodak.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 CineStill 800T / Kodak Vision3 500T
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls9\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Motion-picture stock repackaged for stills. Tungsten-balanced, so it renders cool/teal in daylight unless filtered.\
+\ls9\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 CineStill removes the remjet layer, producing red-orange halation glow around bright highlights such as neon and streetlights.\
+\ls9\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Cinematic night-city aesthetic.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf2 \strokec3 Black & White Film\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf2 \strokec3 Kodak Tri-X 400 (35mm 1954)
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls10\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Prominent grain and high, punchy contrast.\
+\ls10\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Highly pushable (to 1600-3200), which suits photojournalism and street work.\
+\ls10\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Gritty, classic documentary look.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Ilford HP5 Plus 400
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls11\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Smoother tonality and slightly finer grain than Tri-X, with very wide latitude.\
+\ls11\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Flexible in development. Pushes well and produces rich midtones.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Ilford FP4 Plus 125 / Pan F Plus 50
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls12\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Fine grain, high sharpness, and smooth gradation. Pan F is especially fine-grained and contrasty at ISO 50.\
+\ls12\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Favored for landscape and studio work.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Kodak T-Max 100 / 400 (1986)
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls13\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 T-grain (tabular crystal) technology gives very fine grain and high sharpness.\
+\ls13\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Cleaner, more modern look than Tri-X. Can be contrasty and less forgiving if mishandled.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Ilford Delta 3200
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls14\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 True speed is closer to ISO 1000-1600, so it is rated low for its box speed.\
+\ls14\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Very pronounced, stylized grain and low-light capability.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Kodak Plus-X (discontinued 2011) / Panatomic-X
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls15\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Plus-X: classic medium-speed, balanced look with fine grain.\
+\ls15\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Panatomic-X (ISO 32): extraordinarily fine grain and very high resolving power.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Kodak Double-X (5222 cine stock)
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls16\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Motion-picture stock also used in stills. Moderate contrast and a vintage cinematic grain structure.\
+\ls16\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Used in classic black-and-white cinema.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf2 \strokec3 Specialty / Experimental\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf2 \strokec3 Kodak Aerochrome (discontinued 2009)
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls17\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 False-color infrared reversal film. Foliage renders in vivid red, pink, and magenta.\
+\ls17\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Surreal, otherworldly palette. Later used famously by Richard Mosse.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Kodak High-Speed Infrared (HIE) (discontinued 2007)
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls18\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Black-and-white infrared film with white "glowing" foliage, dark skies, and a dreamy halation effect.\
+\ls18\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Extremely heavy grain. Modern analogs are Rollei IR and Ilford SFX.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Lomochrome Purple
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls19\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Shifts greens to purple and magenta and blues to different hues, with variable, unpredictable results.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf2 \strokec3 Polaroid / Fujifilm Instax (instant film)
+\f1\b0 \cf2 \strokec3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls20\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Polaroid: soft focus, lower contrast, color shifts, and visible chemical texture.\
+\ls20\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Instax: crisper, higher contrast, and more modern color. Both produce a unique physical print and a framed look.\
+}

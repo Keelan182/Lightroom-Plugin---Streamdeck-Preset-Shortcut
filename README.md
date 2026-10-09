@@ -153,3 +153,7 @@ As Amount goes up, Size and Roughness go up with it. That way the heavy end look
 How grain looks depends on viewing size. Lightroom draws grain at the image's pixel scale, so the same preset looks stronger on a small export than in a 100% view. Check it at your export size. If the top levels look too coarse on a low-resolution file, drop down one level.
 
 To change the levels, edit `LEVELS` in `tools/generate_grain_presets.py`, then run `python3 tools/generate_grain_presets.py`.
+
+## Iconic Film Stocks presets
+
+There are 31 film-stock approximations in 25 family groups. They're built by `build_presets.py` from `film_stocks.txt`. The output is in `output/`: one folder per family, the zip `output/Iconic Film Stocks.zip`, and `output/README.md`. That README covers import steps, the mapping from each film trait to its settings, and the limits of each approximation.
