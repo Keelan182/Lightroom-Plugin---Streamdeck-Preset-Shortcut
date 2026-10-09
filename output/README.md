@@ -7,11 +7,11 @@
 1. Open a photo in **Edit**, then open the **Presets** panel.
 2. Click **⋯** (top of the Presets panel) → **Import Presets…**.
 3. Select **`Iconic Film Stocks.zip`**. You don't need to unzip it. You can also select individual `.xmp` files.
-4. Confirm the presets appear under **Yours**, in one group per film family (e.g. *Kodak Portra*, *Fujifilm Velvia*, *Kodak T-Max*).
+4. Confirm all 31 presets appear together under **Yours → Iconic Film Stocks**.
 
 Imported presets **sync through Adobe's cloud** to Lightroom on your other computers, iPhone/iPad, Android and the web.
 
-**Groups:** each preset's `crs:Group` is set to its family name, and Lightroom files imported presets under that group. If your version ever puts them under a generic group instead, right-click a preset → **Move** and choose or create the family group. The zip's folders match the family names, so you can tell which group each preset belongs in.
+**One group:** every preset's `crs:Group` is **Iconic Film Stocks**, and the zip holds a single `Iconic Film Stocks/` folder with all the `.xmp` files directly inside it (no subfolders), so the whole set imports into one group. Presets within it list alphabetically, which keeps each brand's stocks next to each other; the film family is noted in each preset's description. If your Lightroom version ever files them elsewhere, select them, right-click → **Move**, and choose **Iconic Film Stocks**.
 
 **Amount:** every preset supports Lightroom's preset **Amount** slider (0-200). Lower it to tone a look down.
 
@@ -21,7 +21,7 @@ No Lightroom-exported sample preset was supplied, so the files follow the curren
 
 ## Presets
 
-| Family (group) | Preset | ISO | Type | Contrast | Saturation | Grain | Usage |
+| Family | Preset | ISO | Type | Contrast | Saturation | Grain | Usage |
 |---|---|---|---|---|---|---|---|
 | Kodachrome | Kodachrome 25 | 25 | Color slide | +25 | +8 | 8/12/35 | Best on daylight scenes with strong primaries. Lower Amount for skin-heavy portraits. |
 | Kodachrome | Kodachrome 64 | 64 | Color slide | +22 | +7 | 14/16/40 | The 'National Geographic' variant. Great for travel and street colour. |

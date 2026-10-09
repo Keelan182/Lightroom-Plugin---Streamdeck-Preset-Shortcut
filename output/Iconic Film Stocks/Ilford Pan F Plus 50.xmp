@@ -1,0 +1,108 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 7.0-c000 1.000000, 0000/00/00-00:00:00        ">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+    xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+   crs:PresetType="Normal"
+   crs:Cluster=""
+   crs:UUID="73652B0E79D045A68A5EEE13FEC5FE4B"
+   crs:SupportsAmount="True"
+   crs:SupportsColor="True"
+   crs:SupportsMonochrome="True"
+   crs:SupportsHighDynamicRange="True"
+   crs:SupportsNormalDynamicRange="True"
+   crs:SupportsSceneReferred="True"
+   crs:SupportsOutputReferred="True"
+   crs:CameraModelRestriction=""
+   crs:Copyright=""
+   crs:ContactInfo=""
+   crs:Version="15.4"
+   crs:ProcessVersion="15.4"
+   crs:Contrast2012="+30"
+   crs:Highlights2012="-5"
+   crs:Shadows2012="0"
+   crs:Whites2012="+12"
+   crs:Blacks2012="-18"
+   crs:Saturation="0"
+   crs:Vibrance="0"
+   crs:Clarity2012="+8"
+   crs:Texture="+18"
+   crs:Dehaze="+2"
+   crs:GrainAmount="6"
+   crs:GrainSize="10"
+   crs:GrainFrequency="25"
+   crs:Sharpness="70"
+   crs:SharpenRadius="+0.7"
+   crs:SharpenDetail="50"
+   crs:SharpenEdgeMasking="15"
+   crs:PostCropVignetteAmount="0"
+   crs:PostCropVignetteMidpoint="50"
+   crs:PostCropVignetteFeather="50"
+   crs:PostCropVignetteRoundness="0"
+   crs:PostCropVignetteStyle="1"
+   crs:PostCropVignetteHighlightContrast="0"
+   crs:GrayMixerRed="+8"
+   crs:GrayMixerOrange="+10"
+   crs:GrayMixerYellow="+8"
+   crs:GrayMixerGreen="-12"
+   crs:GrayMixerAqua="-10"
+   crs:GrayMixerBlue="-10"
+   crs:GrayMixerPurple="-5"
+   crs:GrayMixerMagenta="+5"
+   crs:ConvertToGrayscale="True"
+   crs:ToneCurveName2012="Custom"
+   crs:HasSettings="True">
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Ilford Pan F Plus 50</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:ShortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Ilford Pan F Plus 50</rdf:li>
+    </rdf:Alt>
+   </crs:ShortName>
+   <crs:SortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">20 Ilford Pan F Plus 50</rdf:li>
+    </rdf:Alt>
+   </crs:SortName>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Iconic Film Stocks</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:Description>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Ilford Pan F Plus - Black &amp; white film approximation. ISO 50. Bright light only; very crisp. Lower Amount if blacks block up. Visual approximation built from Lightroom sliders; not an exact reproduction.</rdf:li>
+    </rdf:Alt>
+   </crs:Description>
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>64, 50</rdf:li>
+     <rdf:li>128, 128</rdf:li>
+     <rdf:li>192, 210</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+   <crs:ToneCurvePV2012Red>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Red>
+   <crs:ToneCurvePV2012Green>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Green>
+   <crs:ToneCurvePV2012Blue>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Blue>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>

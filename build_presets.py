@@ -5,8 +5,8 @@ formerly "Lightroom CC"; NOT Lightroom Classic).
 Source of truth for traits: ./film_stocks.txt (RTF content, read-only).
 Every trait quoted in STOCKS below is checked verbatim against that file.
 
-Output:
-    output/Iconic Film Stocks/<Family>/<Preset Name>.xmp
+Output (all presets in ONE folder and ONE Lightroom group):
+    output/Iconic Film Stocks/<Preset Name>.xmp
     output/Iconic Film Stocks.zip
     output/README.md
 
@@ -15,6 +15,7 @@ Standard library only.
 """
 
 import re
+import shutil
 import sys
 import uuid
 import zipfile
@@ -27,6 +28,9 @@ SOURCE = ROOT / "film_stocks.txt"
 OUT = ROOT / "output"
 COLLECTION = "Iconic Film Stocks"
 TREE = OUT / COLLECTION
+# Every preset uses this one crs:Group so the whole set stays together in
+# Lightroom's Presets panel. The film family is kept in each Description.
+GROUP = COLLECTION
 ZIP_PATH = OUT / f"{COLLECTION}.zip"
 
 # No reference/sample.xmp was supplied, so these follow the current Camera Raw
@@ -714,11 +718,11 @@ def seq(tag, pts):
 
 def description(stock):
     iso = f"ISO {stock['iso']}. " if stock["iso"] else ""
-    return (f"{stock['category']} film approximation. {iso}{stock['notes']} "
+    return (f"{stock['family']} - {stock['category']} film approximation. {iso}{stock['notes']} "
             "Visual approximation built from Lightroom sliders; not an exact reproduction.")
 
 
-def xmp(stock, preset_uuid):
+def xmp(stock, preset_uuid, sort_index):
     bw = stock["kind"] == "bw"
     s = settings(stock)
     attrs = [
@@ -743,8 +747,8 @@ def xmp(stock, preset_uuid):
 {attr_xml}>
 {alt("Name", stock["name"])}
 {alt("ShortName", stock["name"])}
-{alt("SortName", stock["name"])}
-{alt("Group", stock["family"])}
+{alt("SortName", f"{sort_index:02d} {stock['name']}")}
+{alt("Group", GROUP)}
 {alt("Description", description(stock))}
 {curve_xml}
   </rdf:Description>
@@ -825,15 +829,15 @@ def readme(stocks):
         "1. Open a photo in **Edit**, then open the **Presets** panel.",
         "2. Click **⋯** (top of the Presets panel) → **Import Presets…**.",
         f"3. Select **`{COLLECTION}.zip`**. You don't need to unzip it. You can also select individual `.xmp` files.",
-        "4. Confirm the presets appear under **Yours**, in one group per film family "
-        "(e.g. *Kodak Portra*, *Fujifilm Velvia*, *Kodak T-Max*).",
+        f"4. Confirm all {len(stocks)} presets appear together under **Yours → {GROUP}**.",
         "",
         "Imported presets **sync through Adobe's cloud** to Lightroom on your other computers, iPhone/iPad, Android and the web.",
         "",
-        "**Groups:** each preset's `crs:Group` is set to its family name, and Lightroom files imported presets under "
-        "that group. If your version ever puts them under a generic group instead, right-click a preset → **Move** "
-        "and choose or create the family group. The zip's folders match the family names, so you can tell which "
-        "group each preset belongs in.",
+        f"**One group:** every preset's `crs:Group` is **{GROUP}**, and the zip holds a single `{COLLECTION}/` "
+        "folder with all the `.xmp` files directly inside it (no subfolders), so the whole set imports into one "
+        "group. Presets within it list alphabetically, which keeps each brand's stocks next to each other; the film "
+        "family is noted in each preset's description. If your Lightroom version ever files them elsewhere, select "
+        f"them, right-click → **Move**, and choose **{GROUP}**.",
         "",
         "**Amount:** every preset supports Lightroom's preset **Amount** slider (0-200). Lower it to tone a look down.",
         "",
@@ -847,7 +851,7 @@ def readme(stocks):
         "",
         "## Presets",
         "",
-        "| Family (group) | Preset | ISO | Type | Contrast | Saturation | Grain | Usage |",
+        "| Family | Preset | ISO | Type | Contrast | Saturation | Grain | Usage |",
         "|---|---|---|---|---|---|---|---|",
     ]
     for st in stocks:
@@ -955,7 +959,14 @@ def validate_definitions(stocks, src):
 def validate_output(stocks):
     errors, rows, uuids = [], [], []
     ns = {"x": NS_X, "rdf": NS_RDF, "crs": NS_CRS}
-    files = sorted(TREE.glob("*/*.xmp"))
+    files = sorted(TREE.glob("*.xmp"))
+    subdirs = [d.name for d in TREE.iterdir() if d.is_dir()]
+    if subdirs:
+        errors.append(f"output folder must be flat, found subfolders {subdirs}")
+    with zipfile.ZipFile(ZIP_PATH) as zf:
+        bad = [n for n in zf.namelist() if not re.fullmatch(re.escape(COLLECTION) + r"/[^/]+\.xmp", n)]
+    if bad:
+        errors.append(f"zip entries outside the single '{COLLECTION}/' folder: {bad}")
     by_name = {st["name"]: st for st in stocks}
     found = {}
     for f in files:
@@ -975,17 +986,15 @@ def validate_output(stocks):
         folder, stem = f.parent.name, f.stem
         if not name:
             errors.append(f"{f}: empty name")
-        if not (folder == group):
-            errors.append(f"{f}: folder {folder!r} != group {group!r}")
+        if not (folder == group == GROUP):
+            errors.append(f"{f}: folder {folder!r} / group {group!r} must both be {GROUP!r}")
         if not (stem == safe_filename(name) and name == short):
             errors.append(f"{f}: filename/Name/ShortName mismatch {stem!r} {name!r} {short!r}")
         st = by_name.get(name)
         if st is None:
             errors.append(f"{f}: unexpected preset {name!r}")
             continue
-        if group != st["family"]:
-            errors.append(f"{f}: group {group!r} != family {st['family']!r}")
-        found.setdefault(group, []).append(name)
+        found.setdefault(st["family"], []).append(name)
         uuids.append(a.get("UUID"))
         if not re.fullmatch(r"[0-9A-F]{32}", a.get("UUID", "")):
             errors.append(f"{f}: UUID not uppercase 32-hex")
@@ -1032,19 +1041,14 @@ def build():
         sys.exit("Definition errors:\n  " + "\n  ".join(errs))
 
     if TREE.exists():
-        for old in TREE.glob("*/*.xmp"):
-            old.unlink()
-        for d in TREE.iterdir():
-            if d.is_dir() and not any(d.iterdir()):
-                d.rmdir()
-    for st in STOCKS:
-        folder = TREE / st["family"]
-        folder.mkdir(parents=True, exist_ok=True)
-        (folder / f"{safe_filename(st['name'])}.xmp").write_text(
-            xmp(st, uuid.uuid4().hex.upper()), encoding="utf-8")
+        shutil.rmtree(TREE)  # also removes the old per-family subfolders
+    TREE.mkdir(parents=True)
+    for i, st in enumerate(STOCKS, 1):
+        (TREE / f"{safe_filename(st['name'])}.xmp").write_text(
+            xmp(st, uuid.uuid4().hex.upper(), i), encoding="utf-8")
 
     with zipfile.ZipFile(ZIP_PATH, "w", zipfile.ZIP_DEFLATED) as zf:
-        for f in sorted(TREE.glob("*/*.xmp")):
+        for f in sorted(TREE.glob("*.xmp")):
             zf.write(f, arcname=f.relative_to(OUT).as_posix())
     (OUT / "README.md").write_text(readme(STOCKS), encoding="utf-8")
 
@@ -1061,7 +1065,8 @@ def build():
     print(f"\n{len(rows)} presets, {len({r[0] for r in rows})} families, {zipped} files in {ZIP_PATH.name}")
     if errs:
         sys.exit("VALIDATION FAILED:\n  " + "\n  ".join(errs))
-    print("VALIDATION PASSED: XML well-formed; folder == Group == family; filename == Name == ShortName; "
+    print(f"VALIDATION PASSED: XML well-formed; single flat folder + zip folder; folder == Group == '{GROUP}' "
+          "for every preset; filename == Name == ShortName; "
           "UUIDs unique; all required presets present; values in range; grayscale flags correct; "
           "all quoted traits found verbatim in film_stocks.txt; no duplicate settings.")
 

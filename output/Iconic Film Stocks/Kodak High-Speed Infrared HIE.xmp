@@ -1,0 +1,108 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 7.0-c000 1.000000, 0000/00/00-00:00:00        ">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+    xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+   crs:PresetType="Normal"
+   crs:Cluster=""
+   crs:UUID="1E05B2D75CE6482EB71A1FF3639B6A4B"
+   crs:SupportsAmount="True"
+   crs:SupportsColor="True"
+   crs:SupportsMonochrome="True"
+   crs:SupportsHighDynamicRange="True"
+   crs:SupportsNormalDynamicRange="True"
+   crs:SupportsSceneReferred="True"
+   crs:SupportsOutputReferred="True"
+   crs:CameraModelRestriction=""
+   crs:Copyright=""
+   crs:ContactInfo=""
+   crs:Version="15.4"
+   crs:ProcessVersion="15.4"
+   crs:Contrast2012="+25"
+   crs:Highlights2012="-5"
+   crs:Shadows2012="0"
+   crs:Whites2012="+20"
+   crs:Blacks2012="-15"
+   crs:Saturation="0"
+   crs:Vibrance="0"
+   crs:Clarity2012="-20"
+   crs:Texture="-10"
+   crs:Dehaze="-15"
+   crs:GrainAmount="85"
+   crs:GrainSize="60"
+   crs:GrainFrequency="75"
+   crs:Sharpness="20"
+   crs:SharpenRadius="+1.2"
+   crs:SharpenDetail="15"
+   crs:SharpenEdgeMasking="20"
+   crs:PostCropVignetteAmount="-18"
+   crs:PostCropVignetteMidpoint="40"
+   crs:PostCropVignetteFeather="60"
+   crs:PostCropVignetteRoundness="0"
+   crs:PostCropVignetteStyle="1"
+   crs:PostCropVignetteHighlightContrast="0"
+   crs:GrayMixerRed="+10"
+   crs:GrayMixerOrange="+20"
+   crs:GrayMixerYellow="+60"
+   crs:GrayMixerGreen="+80"
+   crs:GrayMixerAqua="-60"
+   crs:GrayMixerBlue="-80"
+   crs:GrayMixerPurple="-40"
+   crs:GrayMixerMagenta="0"
+   crs:ConvertToGrayscale="True"
+   crs:ToneCurveName2012="Custom"
+   crs:HasSettings="True">
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Kodak High-Speed Infrared HIE</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:ShortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Kodak High-Speed Infrared HIE</rdf:li>
+    </rdf:Alt>
+   </crs:ShortName>
+   <crs:SortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">28 Kodak High-Speed Infrared HIE</rdf:li>
+    </rdf:Alt>
+   </crs:SortName>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Iconic Film Stocks</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:Description>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Kodak High-Speed Infrared - Specialty film approximation. Sunny landscapes with foliage and blue sky. Visual approximation built from Lightroom sliders; not an exact reproduction.</rdf:li>
+    </rdf:Alt>
+   </crs:Description>
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+     <rdf:li>0, 6</rdf:li>
+     <rdf:li>64, 56</rdf:li>
+     <rdf:li>128, 132</rdf:li>
+     <rdf:li>192, 214</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+   <crs:ToneCurvePV2012Red>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Red>
+   <crs:ToneCurvePV2012Green>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Green>
+   <crs:ToneCurvePV2012Blue>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Blue>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>

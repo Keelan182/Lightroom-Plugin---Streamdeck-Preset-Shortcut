@@ -1,0 +1,108 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 7.0-c000 1.000000, 0000/00/00-00:00:00        ">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+    xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+   crs:PresetType="Normal"
+   crs:Cluster=""
+   crs:UUID="06EDF35076564A3597124B649CC260C3"
+   crs:SupportsAmount="True"
+   crs:SupportsColor="True"
+   crs:SupportsMonochrome="True"
+   crs:SupportsHighDynamicRange="True"
+   crs:SupportsNormalDynamicRange="True"
+   crs:SupportsSceneReferred="True"
+   crs:SupportsOutputReferred="True"
+   crs:CameraModelRestriction=""
+   crs:Copyright=""
+   crs:ContactInfo=""
+   crs:Version="15.4"
+   crs:ProcessVersion="15.4"
+   crs:Contrast2012="+12"
+   crs:Highlights2012="-18"
+   crs:Shadows2012="+8"
+   crs:Whites2012="0"
+   crs:Blacks2012="-5"
+   crs:Saturation="0"
+   crs:Vibrance="0"
+   crs:Clarity2012="+5"
+   crs:Texture="+5"
+   crs:Dehaze="0"
+   crs:GrainAmount="45"
+   crs:GrainSize="40"
+   crs:GrainFrequency="60"
+   crs:Sharpness="35"
+   crs:SharpenRadius="+1.1"
+   crs:SharpenDetail="20"
+   crs:SharpenEdgeMasking="10"
+   crs:PostCropVignetteAmount="-15"
+   crs:PostCropVignetteMidpoint="45"
+   crs:PostCropVignetteFeather="60"
+   crs:PostCropVignetteRoundness="0"
+   crs:PostCropVignetteStyle="1"
+   crs:PostCropVignetteHighlightContrast="0"
+   crs:GrayMixerRed="-10"
+   crs:GrayMixerOrange="-5"
+   crs:GrayMixerYellow="0"
+   crs:GrayMixerGreen="-5"
+   crs:GrayMixerAqua="0"
+   crs:GrayMixerBlue="+12"
+   crs:GrayMixerPurple="+8"
+   crs:GrayMixerMagenta="+2"
+   crs:ConvertToGrayscale="True"
+   crs:ToneCurveName2012="Custom"
+   crs:HasSettings="True">
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Kodak Double-X 5222</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:ShortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Kodak Double-X 5222</rdf:li>
+    </rdf:Alt>
+   </crs:ShortName>
+   <crs:SortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">26 Kodak Double-X 5222</rdf:li>
+    </rdf:Alt>
+   </crs:SortName>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Iconic Film Stocks</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:Description>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Kodak Double-X - Black &amp; white film approximation. ISO 250. Film-noir and cinematic portraits. Box speed 250 (daylight). Visual approximation built from Lightroom sliders; not an exact reproduction.</rdf:li>
+    </rdf:Alt>
+   </crs:Description>
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+     <rdf:li>0, 4</rdf:li>
+     <rdf:li>64, 56</rdf:li>
+     <rdf:li>128, 128</rdf:li>
+     <rdf:li>192, 202</rdf:li>
+     <rdf:li>255, 248</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+   <crs:ToneCurvePV2012Red>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Red>
+   <crs:ToneCurvePV2012Green>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Green>
+   <crs:ToneCurvePV2012Blue>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Blue>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>

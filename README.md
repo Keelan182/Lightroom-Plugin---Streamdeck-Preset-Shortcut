@@ -156,4 +156,4 @@ To change the levels, edit `LEVELS` in `tools/generate_grain_presets.py`, then r
 
 ## Iconic Film Stocks presets
 
-There are 31 film-stock approximations in 25 family groups. They're built by `build_presets.py` from `film_stocks.txt`. The output is in `output/`: one folder per family, the zip `output/Iconic Film Stocks.zip`, and `output/README.md`. That README covers import steps, the mapping from each film trait to its settings, and the limits of each approximation.
+There are 31 film-stock approximations, all in **one** folder and **one** Lightroom group, **Iconic Film Stocks**. They're built by `build_presets.py` from `film_stocks.txt`. The output is in `output/`: the flat folder `output/Iconic Film Stocks/`, the zip `output/Iconic Film Stocks.zip`, and `output/README.md`. That README covers import steps, the mapping from each film trait to its settings, and the limits of each approximation.

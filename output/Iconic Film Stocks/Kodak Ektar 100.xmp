@@ -1,0 +1,147 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 7.0-c000 1.000000, 0000/00/00-00:00:00        ">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+    xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+   crs:PresetType="Normal"
+   crs:Cluster=""
+   crs:UUID="940CDC6E65074017944B994D3A9BB452"
+   crs:SupportsAmount="True"
+   crs:SupportsColor="True"
+   crs:SupportsMonochrome="False"
+   crs:SupportsHighDynamicRange="True"
+   crs:SupportsNormalDynamicRange="True"
+   crs:SupportsSceneReferred="True"
+   crs:SupportsOutputReferred="True"
+   crs:CameraModelRestriction=""
+   crs:Copyright=""
+   crs:ContactInfo=""
+   crs:Version="15.4"
+   crs:ProcessVersion="15.4"
+   crs:Contrast2012="+20"
+   crs:Highlights2012="-15"
+   crs:Shadows2012="+5"
+   crs:Whites2012="+6"
+   crs:Blacks2012="-10"
+   crs:Saturation="+18"
+   crs:Vibrance="+10"
+   crs:Clarity2012="+8"
+   crs:Texture="+15"
+   crs:Dehaze="+3"
+   crs:GrainAmount="3"
+   crs:GrainSize="8"
+   crs:GrainFrequency="25"
+   crs:Sharpness="65"
+   crs:SharpenRadius="+0.8"
+   crs:SharpenDetail="45"
+   crs:SharpenEdgeMasking="15"
+   crs:PostCropVignetteAmount="0"
+   crs:PostCropVignetteMidpoint="50"
+   crs:PostCropVignetteFeather="50"
+   crs:PostCropVignetteRoundness="0"
+   crs:PostCropVignetteStyle="1"
+   crs:PostCropVignetteHighlightContrast="0"
+   crs:HueAdjustmentRed="-3"
+   crs:SaturationAdjustmentRed="+20"
+   crs:LuminanceAdjustmentRed="-5"
+   crs:HueAdjustmentOrange="-2"
+   crs:SaturationAdjustmentOrange="+5"
+   crs:LuminanceAdjustmentOrange="0"
+   crs:HueAdjustmentYellow="0"
+   crs:SaturationAdjustmentYellow="+10"
+   crs:LuminanceAdjustmentYellow="0"
+   crs:HueAdjustmentGreen="+4"
+   crs:SaturationAdjustmentGreen="+15"
+   crs:LuminanceAdjustmentGreen="-4"
+   crs:HueAdjustmentAqua="0"
+   crs:SaturationAdjustmentAqua="+10"
+   crs:LuminanceAdjustmentAqua="0"
+   crs:HueAdjustmentBlue="-2"
+   crs:SaturationAdjustmentBlue="+20"
+   crs:LuminanceAdjustmentBlue="-10"
+   crs:HueAdjustmentPurple="0"
+   crs:SaturationAdjustmentPurple="+5"
+   crs:LuminanceAdjustmentPurple="0"
+   crs:HueAdjustmentMagenta="0"
+   crs:SaturationAdjustmentMagenta="+10"
+   crs:LuminanceAdjustmentMagenta="0"
+   crs:SplitToningShadowHue="0"
+   crs:SplitToningShadowSaturation="0"
+   crs:ColorGradeShadowLum="0"
+   crs:ColorGradeMidtoneHue="0"
+   crs:ColorGradeMidtoneSat="0"
+   crs:ColorGradeMidtoneLum="0"
+   crs:SplitToningHighlightHue="0"
+   crs:SplitToningHighlightSaturation="0"
+   crs:ColorGradeHighlightLum="0"
+   crs:ColorGradeGlobalHue="35"
+   crs:ColorGradeGlobalSat="4"
+   crs:ColorGradeGlobalLum="0"
+   crs:ColorGradeBlending="50"
+   crs:SplitToningBalance="0"
+   crs:ShadowTint="0"
+   crs:RedHue="0"
+   crs:RedSaturation="+12"
+   crs:GreenHue="0"
+   crs:GreenSaturation="0"
+   crs:BlueHue="0"
+   crs:BlueSaturation="+10"
+   crs:ConvertToGrayscale="False"
+   crs:ToneCurveName2012="Custom"
+   crs:HasSettings="True">
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Kodak Ektar 100</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:ShortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Kodak Ektar 100</rdf:li>
+    </rdf:Alt>
+   </crs:ShortName>
+   <crs:SortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">11 Kodak Ektar 100</rdf:li>
+    </rdf:Alt>
+   </crs:SortName>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Iconic Film Stocks</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:Description>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Kodak Ektar - Color negative film approximation. ISO 100. Landscape/travel/architecture. Lower Amount for faces. Visual approximation built from Lightroom sliders; not an exact reproduction.</rdf:li>
+    </rdf:Alt>
+   </crs:Description>
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>64, 52</rdf:li>
+     <rdf:li>128, 129</rdf:li>
+     <rdf:li>192, 206</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+   <crs:ToneCurvePV2012Red>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>128, 132</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Red>
+   <crs:ToneCurvePV2012Green>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Green>
+   <crs:ToneCurvePV2012Blue>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>128, 125</rdf:li>
+     <rdf:li>255, 252</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Blue>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>
